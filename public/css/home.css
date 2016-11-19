@@ -1,5 +1,58 @@
-/* line 1, ../../resources/assets/sass/home.scss */
+/* line 5, ../../resources/assets/sass/_base.scss */
 * {
-  color: red;
-  font-size: 16px;
+  color: #3f4040;
+  font-family: Slack-Lato,appleLogo,sans-serif;
+}
+
+/* line 9, ../../resources/assets/sass/_base.scss */
+body {
+  background-color: #fff1b9;
+  margin: 0px;
+}
+
+/* line 3, ../../resources/assets/sass/home.scss */
+header {
+  border-bottom: 1px solid #5e5e5f;
+}
+
+/* line 7, ../../resources/assets/sass/home.scss */
+.logo__text {
+  margin: 0;
+  padding: .5em 0 .5em 0;
+}
+
+/* line 12, ../../resources/assets/sass/home.scss */
+footer {
+  border-top: 1px solid #5e5e5f;
+  justify-content: center;
+}
+
+/* line 16, ../../resources/assets/sass/home.scss */
+footer, section, .screenshot-list {
+  display: flex;
+}
+
+/* line 19, ../../resources/assets/sass/home.scss */
+section {
+  height: calc(vh - 113px);
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 25, ../../resources/assets/sass/home.scss */
+.screenshot-list {
+  width: 100%;
+  justify-content: space-around;
+}
+
+/* line 30, ../../resources/assets/sass/home.scss */
+.screenshot-list__item {
+  width: 30%;
+  height: 350px;
+  background-color: #fff;
+}
+
+/* line 36, ../../resources/assets/sass/home.scss */
+.signin {
+  background-color: #fff;
 }
