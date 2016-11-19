@@ -6,7 +6,7 @@ class Domain extends BaseModel {
 
     protected $table = 'domain';
 
-    public function user()
+    public function tags()
     {
       return $this->hasMany(Link::class);
     }
