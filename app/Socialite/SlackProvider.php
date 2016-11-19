@@ -12,8 +12,7 @@ class SlackProvider extends AbstractProvider implements ProviderInterface
     protected $scopes = [
         'identity.basic',
         'identity.team',
-        'identity.email',
-        'identity.avatar'
+        'identity.email'
     ];
 
     /**
@@ -53,7 +52,6 @@ class SlackProvider extends AbstractProvider implements ProviderInterface
             'id'        => array_get($user, 'user.id'),
             'name'      => array_get($user, 'user.name'),
             'email'     => array_get($user, 'user.email'),
-            'avatar'    => array_get($user, 'user.image_32'),
         ]);
     }
 }
