@@ -9,8 +9,17 @@ Class Link extends BaseModel {
 
 	protected $table = 'links';
 
-    public function __construct($attributes = array())  {
-        parent::__construct($attributes); // Eloquent
+    public function __construct($attributes)  {
+    	if (is_array(attributes)){
+	        parent::__construct($attributes); // Eloquent
+        } else {
+        	$parsed = $this->parser($attributes)
+        	if (!this->verify_url($parsed['url'])){
+
+        	} else {
+
+        	}
+        }
         // Your construct code.
     }
 
@@ -62,6 +71,10 @@ Class Link extends BaseModel {
 
     	$this->valid = true;
     	return $this->valid
+    }
+
+    public function parser(){
+    	return [];
     }
 
 }
