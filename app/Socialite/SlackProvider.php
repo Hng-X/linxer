@@ -1,4 +1,6 @@
-<?php namespace App\Socialite;
+<?php 
+
+namespace App\Socialite;
 
 use Laravel\Socialite\Two\User;
 use Laravel\Socialite\Two\AbstractProvider;
