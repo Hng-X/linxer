@@ -1,11 +1,11 @@
 <?php
 
-  namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-  use Socialite;
+use Socialite;
 
-  class AuthController extends Controller
-  {
+class AuthController extends Controller
+{
     /* Redirects user to Slack Authetication page
     *
     * @return Response
@@ -23,11 +23,8 @@
     */
    public function handleProviderCallback()
    {
-       $user = Socialite::driver('slack')->user();
+       // $user = Socialite::driver('slack')->user();
+       $user = Socialite::with('slack')->user();
+       var_dump($user);
    }
-
-  }
-
-
-
-?>
+}
