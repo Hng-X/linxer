@@ -1,14 +1,13 @@
 /* line 5, ../../resources/assets/sass/_base.scss */
 * {
   color: #d3e0f7;
-  font-family: 'Lato', sans-serif;
+  font-family: Slack-Lato,appleLogo,sans-serif;
 }
 
 /* line 9, ../../resources/assets/sass/_base.scss */
 body {
   /*background-color: $body_bg;*/
   margin: 0px;
-  font-family: 'Lato', sans-serif;
 }
 
 /* Display Flex */
@@ -18,7 +17,7 @@ header, .header__wrapper, footer, .cta, .screenshot-list {
 }
 
 /* line 17, ../../resources/assets/sass/_base.scss */
-.cta-btn > span, .cta-caption > h1 {
+.cta-btn > span, .cta-caption > h1, .cta-caption > h2 {
   font-weight: 300;
 }
 
@@ -38,33 +37,40 @@ header {
 /* line 9, ../../resources/assets/sass/home.scss */
 .logo {
   padding: 15px 0;
+  background: url("{{ env('APP_URL') }}/assets/linxer.png") no-repeat;
+  background-size: contain;
 }
 
-/* line 10, ../../resources/assets/sass/home.scss */
+/* line 14, ../../resources/assets/sass/home.scss */
 .logo__text {
   margin: 0;
 }
 
-/* line 11, ../../resources/assets/sass/home.scss */
+/* line 15, ../../resources/assets/sass/home.scss */
 .signin a {
   padding: 15px 0;
-  display: block;
+  margin-left: 10px;
 }
 
-/* line 12, ../../resources/assets/sass/home.scss */
+/* line 16, ../../resources/assets/sass/home.scss */
+.signin a, .signin p {
+  display: inline-block;
+}
+
+/* line 17, ../../resources/assets/sass/home.scss */
 .cta {
   background-color: #181842;
   align-items: center;
   justify-content: space-around;
 }
 
-/* line 17, ../../resources/assets/sass/home.scss */
+/* line 22, ../../resources/assets/sass/home.scss */
 .cta-img {
   width: 40%;
   height: 500px;
 }
 
-/* line 18, ../../resources/assets/sass/home.scss */
+/* line 23, ../../resources/assets/sass/home.scss */
 .signin-btn {
   border-radius: 10px;
   border: 1px solid;
@@ -72,22 +78,22 @@ header {
   background-color: transparent;
 }
 
-/* line 24, ../../resources/assets/sass/home.scss */
-.signin-btn:hover {
+/* line 29, ../../resources/assets/sass/home.scss */
+.cta-btn:hover, .signin-btn:hover {
   background-color: #b3293e;
 }
 
-/* line 25, ../../resources/assets/sass/home.scss */
-.signin-btn:hover span {
+/* line 30, ../../resources/assets/sass/home.scss */
+.cta-btn:hover span, .signin-btn:hover span {
   color: #becade;
 }
 
-/* line 26, ../../resources/assets/sass/home.scss */
+/* line 31, ../../resources/assets/sass/home.scss */
 .signin-btn > span {
   font-size: 16px;
 }
 
-/* line 27, ../../resources/assets/sass/home.scss */
+/* line 32, ../../resources/assets/sass/home.scss */
 .cta-btn {
   padding: 15px;
   border-radius: 10px;
@@ -95,29 +101,29 @@ header {
   background: #c72e45;
 }
 
-/* line 33, ../../resources/assets/sass/home.scss */
+/* line 38, ../../resources/assets/sass/home.scss */
 .cta-btn > span {
   font-size: 28px;
 }
 
-/* line 34, ../../resources/assets/sass/home.scss */
+/* line 39, ../../resources/assets/sass/home.scss */
 .cta-caption > h1 {
   font-size: 32px;
 }
 
-/* line 35, ../../resources/assets/sass/home.scss */
+/* line 40, ../../resources/assets/sass/home.scss */
 footer {
   border-top: 1px solid #5e5e5f;
   justify-content: center;
 }
 
-/* line 39, ../../resources/assets/sass/home.scss */
+/* line 44, ../../resources/assets/sass/home.scss */
 .screenshot-list {
   width: 100%;
   justify-content: space-around;
 }
 
-/* line 44, ../../resources/assets/sass/home.scss */
+/* line 49, ../../resources/assets/sass/home.scss */
 .screenshot-list__item {
   width: 30%;
   height: 350px;
