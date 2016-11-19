@@ -1,3 +1,15 @@
+$body_bg: #181842;
+$text_clr: #d3e0f7;
+$border_clr: #5e5e5f;
+
 *{
-	color: red;
+	color: $text_clr;
+	font-family: Slack-Lato,appleLogo,sans-serif;
 }
+body{
+	/*background-color: $body_bg;*/
+	margin: 0px;
+}
+
+/* Display Flex */
+.header__wrapper,footer,.cta,.screenshot-list{ display: flex;}
