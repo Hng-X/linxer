@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Linxer | </title>
+	<title>Linxer - Save the stuff that matters to you </title>
 	<link href="{{ env('APP_URL') }}/css/home.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 	<div class="container">
@@ -19,9 +20,9 @@
 			</div>
 		</header>
 		<section class="cta">
-			<div style="width: 30%;">
+			<div style="width: 40%;">
 				<div class="cta-caption">
-					<h1>A tool that saves your team's important links so you don't lose them when you reach the free tier message limit.</h1>
+					<h1>"Your team has more than 10,000 messages in its archive, so although there are older messages than are shown below, you can't see them."</h1> <h2>Sad, right? That's why Linxer is here-so you can save the important stuff.</h2>
 				</div>
 				<div class="cta-link">
 					<a href="https://slack.com/oauth/authorize?scope=incoming-webhook,bot&client_id=104593454705.107498116711">
@@ -35,9 +36,6 @@
 		</section>
 		<section class="screenshot">
 			<div class="screenshot-list">
-				<div class="screenshot-list__item">
-					<img src="" alt="">
-				</div>
 				<div class="screenshot-list__item">
 					<img src="" alt="">
 				</div>
