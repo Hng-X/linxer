@@ -10,11 +10,12 @@
 		<header>
 			<div class="header__wrapper">
 				<div class="logo">
-					<h1 class="logo__text">L<span>i</span><span>n</span><span>x</span><span>e</span><span>r</span>
-					</h1>
+					<h1 class="logo__text">Linxer</h1>
 				</div>
 				<div class="signin">
-					<a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711"><img alt="View your team's links" height="40" width="172" src="https://platform.slack-edge.com/img/sign_in_with_slack.png" srcset="https://platform.slack-edge.com/img/sign_in_with_slack.png 1x, https://platform.slack-edge.com/img/sign_in_with_slack@2x.png 2x" /></a>
+					<a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711">
+						<button class="signin-btn"><span>LOGIN</span></button>
+					</a>
 				</div>
 			</div>
 		</header>
