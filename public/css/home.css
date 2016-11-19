@@ -8,6 +8,7 @@
 body {
   /*background-color: $body_bg;*/
   margin: 0px;
+  font-family: 'Lato', sans-serif;
 }
 
 /* Display Flex */
