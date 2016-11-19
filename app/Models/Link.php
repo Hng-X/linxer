@@ -1,5 +1,5 @@
 <?php
-namespace App/Models;
+namespace App\Models;
 
 Class Link extends BaseModel {
 
@@ -23,6 +23,11 @@ Class Link extends BaseModel {
         // Your construct code.
     }
 
+	public function domain()
+    {
+      return $this->belongsTo(Domain::class);
+    }
+	
     public function validate(){
     	$this->verify_url($this->url);
     	return $this->status_code;
@@ -73,4 +78,3 @@ Class Link extends BaseModel {
     }
 
 }
-
