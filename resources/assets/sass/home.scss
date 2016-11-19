@@ -6,9 +6,14 @@ header{
 	justify-content: center;
 }
 .header__wrapper{ justify-content: space-between; width: 90%; }
-.logo{ padding: 15px 0; }
+.logo{ 
+	padding: 15px 0;
+	background:url("{{ env('APP_URL') }}/assets/linxer.png") no-repeat;
+	background-size:contain;
+}
 .logo__text{margin: 0;}
-.signin a{ padding:15px 0; display: block;}
+.signin a{ padding:15px 0; margin-left: 10px;}
+.signin a,.signin p{ display: inline-block; }
 .cta{
 	background-color: $body_bg;
 	align-items: center;
@@ -21,8 +26,8 @@ header{
 	padding: 11px 25px;
 	background-color: transparent;
 }
-.signin-btn:hover{background-color: #c72e45 *.9;}
-.signin-btn:hover  span{color: $text_clr *.9;}
+.cta-btn:hover,.signin-btn:hover{background-color: #c72e45 *.9;}
+.cta-btn:hover span,.signin-btn:hover  span{color: $text_clr *.9;}
 .signin-btn > span{font-size: 16px;}
 .cta-btn{
 	padding: 15px;
