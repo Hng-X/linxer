@@ -4,10 +4,14 @@
   use app\Socialite\Socialite;
   use Laravel\Socialite\SocialiteServiceProvider as SocialiteParentServiceProvider;
 
-  public function register()
-   {
-       $this->app->singleton('Laravel\Socialite\Contracts\Factory', function ($app) {
-           return new Socialite($app);
-       });
-   }
+  class SocialiteServiceProvider extends SocialiteParentServiceProvider
+  {
+    public function register()
+     {
+         $this->app->singleton('Laravel\Socialite\Contracts\Factory', function($app) {
+             return new Socialite($app);
+         });
+     }
+  }
+
 ?>
