@@ -2,7 +2,7 @@
 
 header{
 	/*border-bottom: 1px solid $border_clr;*/
-	background-color: #000;
+	background-color: #c72e45;
 }
 .header__wrapper{ justify-content: space-around; }
 .logo{ padding: 15px 0; }
@@ -20,7 +20,7 @@ header{
     border-style: none;
     background: #c72e45;
 }
-.cta-btn > span{font-size: 28px; color: #fff;font-weight: 300;}
+.cta-btn > span{font-size: 28px; font-weight: 300;}
 .cta-caption > h1 {font-size: 32px; font-weight: 300;}
 footer{
 	border-top: 1px solid $border_clr;

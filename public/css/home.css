@@ -1,6 +1,6 @@
 /* line 5, ../../resources/assets/sass/_base.scss */
 * {
-  color: #c72e45;
+  color: #d3e0f7;
   font-family: Slack-Lato,appleLogo,sans-serif;
 }
 
@@ -19,7 +19,7 @@ body {
 /* line 3, ../../resources/assets/sass/home.scss */
 header {
   /*border-bottom: 1px solid $border_clr;*/
-  background-color: #000;
+  background-color: #c72e45;
 }
 
 /* line 7, ../../resources/assets/sass/home.scss */
@@ -67,7 +67,6 @@ header {
 /* line 23, ../../resources/assets/sass/home.scss */
 .cta-btn > span {
   font-size: 28px;
-  color: #fff;
   font-weight: 300;
 }
 
