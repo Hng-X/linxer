@@ -3,6 +3,7 @@
 <head>
 	<title>Linxer - Save the stuff that matters to you </title>
 	<link href="{{ env('APP_URL') }}/css/home.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
 	<div class="container">
