@@ -24,10 +24,9 @@ class CreateLinksTable extends Migration
             
             $table->index('added_by');
             $table->index('title');
-            $table->index('url');
 
             $table->foreign('domain_id')
-                  ->references('id')->on('domain')
+                  ->references('id')->on('domains')
                   ->onDelete('cascade');
         });
     }

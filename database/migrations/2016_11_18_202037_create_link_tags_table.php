@@ -13,10 +13,10 @@ class CreateLinkTagsTable extends Migration
      */
     public function up()
     {
-           Schema::create('link_tags', function (Blueprint $table) {
+           Schema::create('links_tags', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('link_id');
-            $table->string('tags_id');
+            $table->integer('tag_id');
             $table->timestamps();
             
 
@@ -24,7 +24,7 @@ class CreateLinkTagsTable extends Migration
                   ->references('id')->on('links')
                   ->onDelete('cascade');
 
-            $table->foreign('tags_id')
+            $table->foreign('tag_id')
                   ->references('id')->on('tags')
                   ->onDelete('cascade');
         });  
