@@ -12,3 +12,4 @@ class SocialiteServiceProvider extends SocialiteParentServiceProvider
             return new Socialite($app);
         });
     }
+}
