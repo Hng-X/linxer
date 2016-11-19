@@ -1,58 +1,96 @@
 /* line 5, ../../resources/assets/sass/_base.scss */
 * {
-  color: #3f4040;
+  color: #d3e0f7;
   font-family: Slack-Lato,appleLogo,sans-serif;
 }
 
 /* line 9, ../../resources/assets/sass/_base.scss */
 body {
-  background-color: #fff1b9;
+  /*background-color: $body_bg;*/
   margin: 0px;
+}
+
+/* Display Flex */
+/* line 15, ../../resources/assets/sass/_base.scss */
+.header__wrapper, footer, .cta, .screenshot-list {
+  display: flex;
 }
 
 /* line 3, ../../resources/assets/sass/home.scss */
 header {
-  border-bottom: 1px solid #5e5e5f;
+  /*border-bottom: 1px solid $border_clr;*/
+  background-color: #c72e45;
 }
 
 /* line 7, ../../resources/assets/sass/home.scss */
-.logo__text {
-  margin: 0;
-  padding: .5em 0 .5em 0;
+.header__wrapper {
+  justify-content: space-around;
 }
 
-/* line 12, ../../resources/assets/sass/home.scss */
+/* line 8, ../../resources/assets/sass/home.scss */
+.logo {
+  padding: 15px 0;
+}
+
+/* line 9, ../../resources/assets/sass/home.scss */
+.logo__text {
+  margin: 0;
+}
+
+/* line 10, ../../resources/assets/sass/home.scss */
+.signin a {
+  padding: 15px 0;
+  display: block;
+}
+
+/* line 11, ../../resources/assets/sass/home.scss */
+.cta {
+  background-color: #181842;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* line 16, ../../resources/assets/sass/home.scss */
+.cta-img {
+  width: 40%;
+  height: 500px;
+}
+
+/* line 17, ../../resources/assets/sass/home.scss */
+.cta-btn {
+  padding: 15px;
+  border-radius: 10px;
+  border-style: none;
+  background: #c72e45;
+}
+
+/* line 23, ../../resources/assets/sass/home.scss */
+.cta-btn > span {
+  font-size: 28px;
+  font-weight: 300;
+}
+
+/* line 24, ../../resources/assets/sass/home.scss */
+.cta-caption > h1 {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+/* line 25, ../../resources/assets/sass/home.scss */
 footer {
   border-top: 1px solid #5e5e5f;
   justify-content: center;
 }
 
-/* line 16, ../../resources/assets/sass/home.scss */
-footer, section, .screenshot-list {
-  display: flex;
-}
-
-/* line 19, ../../resources/assets/sass/home.scss */
-section {
-  height: calc(vh - 113px);
-  flex-direction: column;
-  align-items: center;
-}
-
-/* line 25, ../../resources/assets/sass/home.scss */
+/* line 29, ../../resources/assets/sass/home.scss */
 .screenshot-list {
   width: 100%;
   justify-content: space-around;
 }
 
-/* line 30, ../../resources/assets/sass/home.scss */
+/* line 34, ../../resources/assets/sass/home.scss */
 .screenshot-list__item {
   width: 30%;
   height: 350px;
-  background-color: #fff;
-}
-
-/* line 36, ../../resources/assets/sass/home.scss */
-.signin {
   background-color: #fff;
 }
