@@ -1,4 +1,38 @@
-*{
-	color:red;	
-	font-size:16px;
+@import 'base';
+
+header{
+	border-bottom: 1px solid $border_clr;
+}
+
+.logo__text{
+	margin: 0;
+	padding: .5em 0 .5em 0;
+}
+
+footer{
+	border-top: 1px solid $border_clr;
+	justify-content: center;
+}
+footer,section,.screenshot-list{
+	display: flex;
+}
+section{
+	height: calc(vh - 113px);
+	flex-direction: column;
+	align-items: center;
+}
+
+.screenshot-list{
+	width: 100%;
+	justify-content: space-around;
+}
+
+.screenshot-list__item{
+	width: 30%;
+	height: 350px;
+	background-color: #fff;
+}
+
+.signin{
+	background-color: #fff;
 }

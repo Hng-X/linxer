@@ -1,3 +1,12 @@
+$body_bg: #fff1b9;
+$text_clr: #3f4040;
+$border_clr: #5e5e5f;
+
 *{
-	color: red;
+	color: $text_clr;
+	font-family: Slack-Lato,appleLogo,sans-serif;
+}
+body{
+	background-color: $body_bg;
+	margin: 0px;
 }
