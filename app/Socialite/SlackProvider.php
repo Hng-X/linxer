@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <?php
+=======
+<?php 
+
+>>>>>>> aa1d83df09661d850ba70992cb87b95321276d27
 namespace App\Socialite;
 
 use Laravel\Socialite\Two\User;

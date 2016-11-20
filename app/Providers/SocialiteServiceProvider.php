@@ -1,7 +1,9 @@
 <?php
- namespace App\Providers;
 
-use app\Socialite\Socialite;
+
+namespace App\Providers;
+
+use App\Socialite\Socialite;
 use Laravel\Socialite\SocialiteServiceProvider as SocialiteParentServiceProvider;
 
 class SocialiteServiceProvider extends SocialiteParentServiceProvider
