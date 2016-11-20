@@ -20,5 +20,4 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::get('auth/slack', 'Auth\AuthController@redirectToProvider');
-Route::get('auth/callback', 'Auth\AuthController@handleProviderCallback');
+Route::get('/slack', 'AuthController@redirectToProvider');
