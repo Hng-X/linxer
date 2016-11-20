@@ -29,3 +29,6 @@ Route::get('/links', function () {
 //---- Events API verification route
 Route::post('/verify', 'VerificationController@verify');
 Route::get('/verify', 'VerificationController@verify');
+
+//---- BOT routes
+Route::post('/links/{ $link }', 'BotController@receive');
