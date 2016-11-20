@@ -1,4 +1,5 @@
-<?php namespace App\Socialite;
+<?php
+namespace App\Socialite;
 
 use Laravel\Socialite\Two\User;
 use Laravel\Socialite\Two\AbstractProvider;
@@ -17,6 +18,7 @@ class SlackProvider extends AbstractProvider implements ProviderInterface
 
     /**
      * {@inheritdoc}
+     *
      */
     protected function getAuthUrl($state)
     {
