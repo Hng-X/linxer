@@ -27,5 +27,5 @@ Route::get('/links', function () {
 	Route::get('/authorize', 'AuthController@handleProviderCallback');
 
 //---- Events API verification route
-//Route::post('/verify', 'VerificationController@verify');
-//Route::get('/verify', 'VerificationController@verify');
+Route::post('/verify', 'VerificationController@verify');
+Route::get('/verify', 'VerificationController@verify');
