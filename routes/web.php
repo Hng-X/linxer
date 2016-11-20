@@ -27,4 +27,3 @@ Route::post('/links', 'BotController@receive');
 //     $router->get('/', ['as' => 'auth.slack', 'uses' => 'AuthController@redirectToProvider']);
 // });
 	Route::get('/authorize', 'AuthController@handleProviderCallback');
-
