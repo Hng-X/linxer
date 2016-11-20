@@ -1,5 +1,8 @@
 <?php
 
+
+namespace App\Socialite;
+
 use Laravel\Socialite\SocialiteManager;
 
 class Socialite extends SocialiteManager
