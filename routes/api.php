@@ -12,7 +12,8 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('/links', 'BotController@receive');
+Route::post('/links/{ $link }', 'BotController@receive');
+Route::post('/verify', 'VerificationController@verify');
 
 Route::get('/user', function (Request $request) {
     return $request->user();
