@@ -7,7 +7,7 @@ use Closure;
 class EventsMiddleware
 {
     /**
-     * Handle an incoming request.
+     * Handle an incoming request. Handles verification and authentication of token
      *
      * @param  \Illuminate\Http\Request $request
      * @param  \Closure $next
@@ -19,6 +19,9 @@ class EventsMiddleware
             return response($request->input("challenge"), 200);
         }
 
+        if ($request->input("type") == "url_verification") {
+            return response($request->input("challenge"), 200);
+        }
         return $next($request);
     }
 }
