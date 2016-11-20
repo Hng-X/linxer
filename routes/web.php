@@ -14,4 +14,8 @@
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/links/{team-name}', 'WebController@viewLinks');
+//Route::get('/links/{team-name}', 'WebController@viewLinks');
+
+Route::get('/links', function () {
+    return view('listing');
+});
