@@ -1,0 +1,77 @@
+.header-container, .links-row, item-info {
+	display: flex
+}
+.header-container {
+	justify-content: space-around;
+	background-color: #e2e2e2;
+	height: 50px;
+    align-items: center;
+	
+	.team-name {
+		font-size: 25px;
+    	color: blueviolet;
+	}
+}
+.links {
+//	background: url("{{ env('APP_URL') }}/img/background-pattern.png") repeat;
+	background-image: linear-gradient(to top right, #f83737, #fa9241);
+	color: #ffffff;
+}
+.links-row {
+	justify-content: space-around;
+	padding: 30px;
+
+	.links-row__item {
+		width: 24%;
+		float: left;
+		padding: 1px 5px;
+		background-color: #8ad0c8;
+		
+		&:hover {
+			box-shadow: 2px 1px 2px 2px #b4b4b4;
+		}
+		
+		.item-source p{
+			span:first-child {
+				margin-right: 5px;
+				
+//				&:after {
+////					content: "\f0da";
+//					font-size: 14px;
+//					color: #ffffff;
+//						
+//				}
+			}
+		}
+		.item-details {
+			.item-title {
+				a {
+					font-size: 15px;
+					font-weight: 700;
+					font-variant: small-caps;
+				}
+				
+				.item-highlight__attached{
+					span {
+						font-size: 15px;
+					}
+				}
+			}
+		}
+		.item-info {
+			display: flex;
+			margin-top: 15px;
+			justify-content: space-between;
+			
+			.item-info__name {
+				p {
+					font-family: monospace;
+					
+					span {
+						font-weight: 700;
+					}
+				}
+			}
+		}
+	}
+}
