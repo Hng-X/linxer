@@ -11,8 +11,20 @@ class VerificationsController extends Controller
     }
 
     public function verify() {
-    	$confirm = "header('HTTP/1.1 200 OK')"."header('Content-type:application/json')"."{'challenge':'3eZbrw1aBm2rZgRNFdxV2595E9CY3gmdALWMmHkvFXO7tYXAYM8P'}";
+    	ini_set("allow_url_fopen", 1);
 
-    	return $confirm;
+    	$post = file_get_contents("php://input");
+    	$data = json_decode($post);
+    	$challenge = $data->challenge;
+
+    	//http_response_code(200);
+    	header("HTTP/1.0 200 OK");
+    	header('Content-Type: application/json');
+    	$confirm = {'challenge': $challenge};
+
+    	return json_encode($confirm);
+
+    	//return $confirm;
+    	//return
     }
 }
