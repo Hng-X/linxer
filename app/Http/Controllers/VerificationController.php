@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class VerificationsController extends Controller
+class VerificationController extends Controller
 {
-    function __construct {
+    function __construct() {
 
     }
 
@@ -19,12 +19,9 @@ class VerificationsController extends Controller
 
     	//http_response_code(200);
     	header("HTTP/1.0 200 OK");
-    	header('Content-Type: application/json');
-    	$confirm = {'challenge': $challenge};
+    	header("Content-Type: application/json");
+    	$confirm = array('challenge' => $challenge);
 
     	return json_encode($confirm);
-
-    	//return $confirm;
-    	//return
     }
 }

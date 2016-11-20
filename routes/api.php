@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 */
 Route::post('/links/{ $link }', 'BotController@receive');
 Route::post('/verify', 'VerificationController@verify');
+Route::get('/verify', 'VerificationController@verify');
 
 Route::get('/user', function (Request $request) {
     return $request->user();
