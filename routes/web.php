@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+
 //---- bot events route
 Route::post('/links', 'BotController@receive');
 
