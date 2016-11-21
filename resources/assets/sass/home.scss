@@ -20,6 +20,7 @@ header{
 	border: 1px solid;
 	padding: 11px 25px;
 	background-color: transparent;
+	cursor: pointer;
 }
 .cta-btn:hover,.signin-btn:hover{background-color: #c72e45 *.9;}
 .cta-btn:hover span,.signin-btn:hover  span{color: $text_clr *.9;}
@@ -29,6 +30,7 @@ header{
     border-radius: 10px;
     border-style: none;
     background: #c72e45;
+    cursor: pointer;
 }
 .cta-btn > span{font-size: 28px; }
 .cta-caption > h1 {font-size: 32px;}
