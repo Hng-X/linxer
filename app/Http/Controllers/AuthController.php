@@ -9,7 +9,7 @@ use GuzzleHttp\Client;
 class AuthController extends Controller
 {
 
-    public function authorize()
+    public function authorizeSlack()
     {
          $code=$_GET['code'];
 $client=new Client();
