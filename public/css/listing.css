@@ -48,7 +48,7 @@ header {
     .links-row .links-row__item .item-details .item-title .item-highlight__attached span {
       font-size: 15px; }
     .links-row .links-row__item .item-details .item-highlight__details {
-      background-color: #f8f8ff; }
+      background-color: rgba(238, 238, 238, 0.92); }
     .links-row .links-row__item .item-info {
       display: flex;
       margin-top: 15px;

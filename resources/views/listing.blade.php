@@ -15,7 +15,7 @@
 		<header>
 			<div class="container header-container">
 				<div class="team-name">
-					<p>Team <span>HngX</span></p>
+					<a href="/"><p>Team <span>HngX</span></p></a>
 				</div>
 				<div class="search-box">
 					<span><i class="fa fa-search" aria-hidden="true"></i></span>
@@ -48,7 +48,7 @@
 						</div>
 						<div class="item-highlight">
 							<div class="item-highlight__details">
-								<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+								<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</span>
 							</div>
 							<div class="item-highlight__image">
 							</div>
@@ -76,7 +76,7 @@
 						</div>
 						<div class="item-highlight">
 							<div class="item-highlight__details">
-								<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+								<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</span>
 							</div>
 							<div class="item-highlight__image">
 							</div>
@@ -104,7 +104,7 @@
 						</div>
 						<div class="item-highlight">
 							<div class="item-highlight__details">
-								<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+								<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</span>
 							</div>
 							<div class="item-highlight__image">
 							</div>
@@ -132,7 +132,7 @@
 						</div>
 						<div class="item-highlight">
 							<div class="item-highlight__details">
-								<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+								<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</span>
 							</div>
 							<div class="item-highlight__image">
 							</div>
