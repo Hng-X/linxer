@@ -13,8 +13,8 @@ class AuthController extends Controller
     {
          $code=$_GET['code'];
 $client=new Client();
-             $response=$client->request('POST', 'https://slack.com/api/oauth.access',
-['json' => ['client_id' => '104593454705.107498116711',
+             $response=$client->request('GET', 'https://slack.com/api/oauth.access',
+['query' => ['client_id' => '104593454705.107498116711',
 'client_secret' => env('SLACK_CLIENT_SECRET'),
 'code' => $code]]);
 $response=json_decode($response->getBody(), true);
