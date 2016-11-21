@@ -177,8 +177,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\SocialiteServiceProvider::class,
-Recca0120\LaravelTracy\ServiceProvider::class
+        App\Providers\SocialiteServiceProvider::class
 
     ],
 
