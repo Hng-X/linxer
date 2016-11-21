@@ -25,6 +25,6 @@ class AuthController extends Controller
    {
        // $user = Socialite::driver('slack')->user();
        $user = Socialite::with('slack')->user();
-       var_dump($user);
+       //var_dump($user);
    }
 }

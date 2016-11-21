@@ -27,4 +27,7 @@ Route::get('/links/{team-name}', 'WebController@viewLinks');
 //     $router->get('/', ['as' => 'auth.slack', 'uses' => 'AuthController@redirectToProvider']);
 // });
 
-Route::get('/authorize', 'AuthController@handleProviderCallback');
+/* Slack Authorization Routers */
+Route::get('/slack', 'AuthController@handleProviderCallback');
+Route::get('/authorize', 'AuthController@redirectToProvider');
+//
