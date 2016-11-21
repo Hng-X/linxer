@@ -5,9 +5,9 @@ class Tag extends BaseModel {
 
     protected $table = 'tags';
 
-    public function link()
+    public function links()
     {
-      return $this->belongsTo(Link::class);
+      return $this->belongsToMany(Link::class);
     }
 
 }
