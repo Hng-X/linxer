@@ -1,131 +1,132 @@
-/* line 5, ../../resources/assets/sass/_base.scss */
 * {
   color: #d3e0f7;
-  font-family: 'Lato', sans-serif;
-}
+  font-family: 'Lato', sans-serif; }
 
-/* line 9, ../../resources/assets/sass/_base.scss */
 body {
   /*background-color: $body_bg;*/
-  margin: 0px;
-}
+  margin: 0px; }
 
 /* Display Flex */
-/* line 15, ../../resources/assets/sass/_base.scss */
 header, .header__wrapper, footer, .cta, .screenshot-list {
-  display: flex;
-}
+  display: flex; }
 
-/* line 17, ../../resources/assets/sass/_base.scss */
 .cta-btn > span, .cta-caption > h1, .cta-caption > h2 {
-  font-weight: 300;
-}
+  font-weight: 300; }
 
-/* line 3, ../../resources/assets/sass/home.scss */
 header {
   /*border-bottom: 1px solid $border_clr;*/
   background-color: #c72e45;
-  justify-content: center;
-}
+  justify-content: center; }
 
-/* line 8, ../../resources/assets/sass/home.scss */
 .header__wrapper {
   justify-content: space-between;
-  width: 90%;
-}
+  width: 90%; }
 
-/* line 9, ../../resources/assets/sass/home.scss */
 .logo {
   padding: 15px 0;
   background: url("{{ env('APP_URL') }}/assets/linxer.png") no-repeat;
-  background-size: contain;
-}
+  background-size: contain; }
 
-/* line 14, ../../resources/assets/sass/home.scss */
 .logo__text {
-  margin: 0;
-}
+  margin: 0; }
 
-/* line 15, ../../resources/assets/sass/home.scss */
 .signin a {
   padding: 15px 0;
-  margin-left: 10px;
-}
+  margin-left: 10px; }
 
-/* line 16, ../../resources/assets/sass/home.scss */
 .signin a, .signin p {
-  display: inline-block;
-}
+  display: inline-block; }
 
-/* line 17, ../../resources/assets/sass/home.scss */
-.cta {
-  background-color: #181842;
-  align-items: center;
-  justify-content: space-around;
-}
-
-/* line 22, ../../resources/assets/sass/home.scss */
-.cta-img {
-  width: 40%;
-  height: 500px;
-}
-
-/* line 23, ../../resources/assets/sass/home.scss */
 .signin-btn {
   border-radius: 10px;
   border: 1px solid;
   padding: 11px 25px;
-  background-color: transparent;
-}
+  background-color: transparent; }
 
-/* line 29, ../../resources/assets/sass/home.scss */
 .cta-btn:hover, .signin-btn:hover {
-  background-color: #b3293e;
-}
+  background-color: #b3293e; }
 
-/* line 30, ../../resources/assets/sass/home.scss */
 .cta-btn:hover span, .signin-btn:hover span {
-  color: #becade;
-}
+  color: #becade; }
 
-/* line 31, ../../resources/assets/sass/home.scss */
 .signin-btn > span {
-  font-size: 16px;
-}
+  font-size: 16px; }
 
-/* line 32, ../../resources/assets/sass/home.scss */
 .cta-btn {
   padding: 15px;
   border-radius: 10px;
   border-style: none;
-  background: #c72e45;
-}
+  background: #c72e45; }
 
-/* line 38, ../../resources/assets/sass/home.scss */
 .cta-btn > span {
-  font-size: 28px;
-}
+  font-size: 28px; }
 
-/* line 39, ../../resources/assets/sass/home.scss */
 .cta-caption > h1 {
-  font-size: 32px;
-}
+  font-size: 32px; }
 
-/* line 40, ../../resources/assets/sass/home.scss */
+.cta {
+  background-color: #181842;
+  height: 500px;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-around; }
+  .cta .cta-intro {
+    width: 50%;
+    padding: 0px 50px; }
+  .cta .cta-img {
+    width: 50%;
+    height: inherit; }
+
 footer {
   border-top: 1px solid #5e5e5f;
-  justify-content: center;
-}
+  justify-content: center; }
 
-/* line 44, ../../resources/assets/sass/home.scss */
 .screenshot-list {
   width: 100%;
-  justify-content: space-around;
-}
+  justify-content: space-around; }
 
-/* line 49, ../../resources/assets/sass/home.scss */
 .screenshot-list__item {
   width: 30%;
   height: 350px;
-  background-color: #fff;
-}
+  background-color: #fff; }
+
+@media (max-width: 500px) {
+  .header__wrapper {
+    display: block;
+    text-align: center; }
+    .header__wrapper .logo h1 {
+      font-size: 24px; }
+
+  .cta {
+    display: block;
+    height: 400px; }
+    .cta .cta-intro {
+      width: 100%;
+      padding: 0px; }
+      .cta .cta-intro h1 {
+        font-size: 24px; }
+      .cta .cta-intro h2 {
+        font-size: 18px; }
+      .cta .cta-intro span {
+        font-size: 20px; } }
+@media (max-width: 700px) and (min-width: 500px) {
+  .header__wrapper {
+    display: block;
+    text-align: center; }
+    .header__wrapper .logo h1 {
+      font-size: 32px; }
+
+  .cta {
+    display: block;
+    height: 400px; }
+    .cta .cta-intro {
+      width: 100%;
+      padding: 0px; }
+      .cta .cta-intro h1 {
+        font-size: 32px; }
+      .cta .cta-intro h2 {
+        font-size: 22px; }
+      .cta .cta-intro span {
+        font-size: 24px; } }
+
+/*# sourceMappingURL=home.css.map */
