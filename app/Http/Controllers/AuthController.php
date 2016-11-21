@@ -21,6 +21,8 @@ $response=json_decode($response->getBody(), true);
 if($response['ok']===true) {
 if(isset($response['access_token'])) {
 Storage::put('token.dat', $response['access_token']);
+Storage::put('bot_id.dat', $response['bot']['bot_user_id']);
+Storage::put('bot_token.dat', $response['bot']['bot_access_token']);
 }
 else {
 Storage::put('token.dat', $response['stuff']['access_token']);
