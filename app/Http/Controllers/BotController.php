@@ -22,13 +22,14 @@ class BotController extends Controller
      */
     public function receive(Request $request)
     {
-        response('', 200);
         $text=$request->input('event.text');
+        $data = [];
         if (parseText($text)['type']=='add') {
             $data['text'] = "Done! See all your team's links here. :blush:";
-            $data['channel'] = $request->input('event'.channel');
+            $data['channel'] = $request->input('event.channel');
             $data['response_type'] = "saved";
             respond($data);
+            return response('Ok', 200);
         }
 
     }
