@@ -19,11 +19,10 @@ Route::get('/listing', function () {
     return view('listing');
 });
 
+Route::get('/links/{teamName}', 'WebController@viewLinks');
 
 //---- bot events route
 Route::post('/links', 'BotController@receive');
-
-Route::get('/links/{team-name}', 'WebController@viewLinks');
 
 // $router->group(['prefix' => 'auth/slack', 'namespace' => 'Auth'], function ($router) {
 //     $router->get('/callback/user', ['as' =>'auth.slack.callback.user', 'uses' => 'AuthController@handleProviderCallbackUser']);
