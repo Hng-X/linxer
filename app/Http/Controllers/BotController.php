@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Middleware\EventsMiddleware;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Storage;
 
 class BotController extends Controller
 {
@@ -18,17 +20,31 @@ class BotController extends Controller
     /**
      * Handles events received from Slack
      */
-    public function receive()
+    public function receive(Request $request)
     {
+        response('', 200);
+        $text=$request->input('event.text');
+        if (parseText($text)['type']=='add') {
+            $data['text'] = "Done! See all your team's links here. :blush:";
+            $data['channel'] = $request->input('event'.channel');
+            $data['response_type'] = "saved";
+            respond($data);
+        }
 
     }
 
     /**
      * Posts responses to Slack
      */
-    public function respond()
+    public function respond(array $data)
     {
-
+//if ($data['response_type'] == 'saved')
+$client=new Client();
+             $client->request('GET', 'https://slack.com/api/chat.postMessage',
+['query' => [
+'token' => Storage::get('bot_token.dat'),
+'channel'=> $data['channel'],
+'text' => $data['text']]]);
     }
 
     public function parseText($text)
