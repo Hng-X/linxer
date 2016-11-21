@@ -11,7 +11,7 @@ class AuthController extends Controller
 
     public function authorize()
     {  
-        if(isset($_GET['code']) {
+        if(isset($_GET['code'])) {
              $code=$_GET['code'];
              $client=new Client();
              $response=$client->request('POST', 'https://slack.com/api/oauth.access',
