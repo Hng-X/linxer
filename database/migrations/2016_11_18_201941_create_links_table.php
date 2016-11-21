@@ -15,19 +15,18 @@ class CreateLinksTable extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('domain_id');
+            $table->string('team_id');
             $table->string('url');
             $table->string('title')->nullable();
-            $table->string('added_by');
+            $table->string('user_id');
+            $table->string('channel_id');
             $table->timestamps();
             $table->softDeletes();
             
-            $table->index('added_by');
+            $table->index('user_id');
+            $table->index('channel_id');
             $table->index('title');
 
-            $table->foreign('domain_id')
-                  ->references('id')->on('domains')
-                  ->onDelete('cascade');
         });
     }
 

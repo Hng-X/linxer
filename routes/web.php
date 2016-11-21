@@ -15,11 +15,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/listing', function () {
+    return view('listing');
+});
+
+Route::get('/links/{teamName}', 'WebController@viewLinks');
 
 //---- bot events route
 Route::post('/links', 'BotController@receive');
-
-Route::get('/links/{team-name}', 'WebController@viewLinks');
 
 // $router->group(['prefix' => 'auth/slack', 'namespace' => 'Auth'], function ($router) {
 //     $router->get('/callback/user', ['as' =>'auth.slack.callback.user', 'uses' => 'AuthController@handleProviderCallbackUser']);
@@ -27,7 +30,8 @@ Route::get('/links/{team-name}', 'WebController@viewLinks');
 //     $router->get('/', ['as' => 'auth.slack', 'uses' => 'AuthController@redirectToProvider']);
 // });
 
+
 /* Slack Authorization Routers */
-Route::get('/slack', 'AuthController@handleProviderCallback');
-Route::get('/authorize', 'AuthController@redirectToProvider');
-//
+
+Route::get('/authorize', 'AuthController@authorizeSlack');
+Route::get('/authorize', 'AuthController@redirectUsertoTeamLinks');
