@@ -6,6 +6,11 @@ use Socialite;
 
 class AuthController extends Controller
 {
+
+    public function authorize()
+    {
+        return view('authorize');
+    }
     /* Redirects user to Slack Authetication page
     *
     * @return Response
