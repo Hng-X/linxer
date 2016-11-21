@@ -11,15 +11,14 @@ class AuthController extends Controller
 
     public function authorize()
     {  
-        if(isset($_GET['code'])) {
-             $code=$_GET['code'];
+        $code=$_GET['code'];
              $client=new Client();
              $response=$client->request('POST', 'https://slack.com/api/oauth.access',
 ['json' => ['client_id' => env('SLACK_CLIENT_ID'),
 'client_secret' => env('SLACK_CLIENT_SECRET'),
 'code' => $code]]);
 $response=json_decode($response->getBody(), true);
-if($response['ok']==true) {
+if($response['ok']===true) {
 if(isset($response['access_token'])) {
 Storage::put('token.dat', $response['access_token']);
 }
@@ -32,7 +31,6 @@ else {
 $result=$response['error'];
 }
 return view('authorize', ['result' => $result]);
-}
     }
 
 
