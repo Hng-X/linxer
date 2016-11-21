@@ -1,1 +1,1 @@
-Authorized!!
+{{ $result }}
