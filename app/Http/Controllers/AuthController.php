@@ -10,9 +10,9 @@ class AuthController extends Controller
 {
 
     public function authorize()
-    {  
-        $code=$_GET['code'];
-             $client=new Client();
+    {
+         $code=$_GET['code'];
+$client=new Client();
              $response=$client->request('POST', 'https://slack.com/api/oauth.access',
 ['json' => ['client_id' => env('SLACK_CLIENT_ID'),
 'client_secret' => env('SLACK_CLIENT_SECRET'),
