@@ -13,7 +13,7 @@
 <div class="links-container">
 	<div class="">
 		<header>
-			<div class="header-container">
+			<div class="container header-container">
 				<div class="team-name">
 					<p>Team <span>HngX</span></p>
 				</div>
@@ -23,8 +23,18 @@
 				</div>
 			</div>
 		</header>
+		<section>
+			<div class="container welcome-note">
+				<article class="well">
+					<h4>Oh Hey!</h4>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+					</p>
+				</article>
+			</div>
+		</section>
 		<section class="links">
-			<div class="links-row">
+			<div class="container links-row">
 				<div class="links-row__item">
 					<div class="item-source">
 						<p><span>HngX</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
