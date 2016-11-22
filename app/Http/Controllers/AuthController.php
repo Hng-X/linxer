@@ -56,8 +56,9 @@ return view('authorize', ['result' => $result]);
           $access_token=$response['access_token'];
           $slackUsers = $this->getUserFromToken($access_token);
           $teamName = $slackUsers['team']['name'];
+          $teamId = $slackUsers['team']['id'];
 
-          $this->redirect('/links/{$teamName}');
+          return redirect("/links/$teamId-$teamName");
         }
         else
         {
