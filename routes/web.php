@@ -30,4 +30,4 @@ Route::post('/links', 'BotController@receive');
 /* Slack Authorization Routers */
 
 Route::get('/authorize', 'AuthController@authorizeSlack');
-Route::get('/authorize', 'AuthController@redirectUsertoTeamLinks');
+Route::get('/signin', 'AuthController@redirectUsertoTeamLinks');
