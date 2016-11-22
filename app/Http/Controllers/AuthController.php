@@ -70,7 +70,7 @@ return view('authorize', ['result' => $result]);
 
     /* Get User details from slack generated token */
 
-    public function getUserFromToken($token);
+    public function getUserFromToken($token)
     {
       $options = ['headers' => ['Accept' => 'application/json']];
       $endpoint = 'https://slack.com/api/users.identity?token='.$token;
