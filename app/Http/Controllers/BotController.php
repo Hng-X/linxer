@@ -24,11 +24,13 @@ class BotController extends Controller
     {
         $text=$request->input('event.text');
         $data = [];
-        if (parseText($text)['type']=='add') {
+        if ($this->parseText($text)['type']=='add') {
             $data['text'] = "Done! See all your team's links here. :blush:";
             $data['channel'] = $request->input('event.channel');
             $data['response_type'] = "saved";
-            respond($data);
+            
+            $this->respond($data);
+            
             return response('Ok', 200);
         }
 
