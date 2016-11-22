@@ -9,21 +9,22 @@ use Illuminate\Http\Request;
  */
 class WebController extends Controller
 {
-    public function viewLinks()
+    public function viewLinks($teamSlug)
     {
-
+             //parse $teamId and $teamName from $teamSlug
         if (isset($_GET["query"])) {
-            //$results=search($teamName, $_GET["query"]);
-            return view('listing', $results);
+        $query=$_GET["query"];
+            //$results=search($teamId, $query);
+            return view('listing', ["teamName" => $teamName, "query" => $query, "results" => $results]);
         } else {
-            //$results=getAllLinks($teamName);
-            return view('listing');
+            //$results=getAllLinks($teamId);
+            return view('listing', ["teamName" => $teamName, "query" => $query, "results" => $results]);
         }
     }
 
     /** Retrieves all a team's links
      *
-     * @param $team The name of the team
+     * @param $team The id of the team
      * @param $queryString The query string
      */
     public function getAllLinks($team)
@@ -33,11 +34,13 @@ class WebController extends Controller
 
     /** Searches for a team's links matching a given search query
      *
-     * @param $team The name of the team
+     * @param $team The id of the team
      * @param $queryString The query string
      */
     public function search($team, $queryString)
     {
+//parse query string
+//perform search
 
     }
 }

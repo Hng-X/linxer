@@ -15,11 +15,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/listing', function () {
-    return view('listing');
-});
-
-Route::get('/links/{teamName}', 'WebController@viewLinks');
+Route::get('/links/{teamSlug}', 'WebController@viewLinks');
 
 //---- bot events route
 Route::post('/links', 'BotController@receive');
