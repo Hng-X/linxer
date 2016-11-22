@@ -46,7 +46,7 @@ return view('authorize', ['result' => $result]);
       $response=$client->request('GET', 'https://slack.com/api/oauth.access',
       ['query' => ['client_id' => '104593454705.107498116711',
       'client_secret' => env('SLACK_CLIENT_SECRET'),
-      'redirect_uri' => urlencode(env('APP_URL').'/signin',
+      'redirect_uri' => urlencode(env('APP_URL').'/signin'),
       'code' => $code]]);
       $response=json_decode($response->getBody(), true);
       if($response['ok']===true)
