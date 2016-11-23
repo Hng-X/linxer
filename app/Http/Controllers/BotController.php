@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Middleware\EventsMiddleware;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Storage;
+use App\Models\Credential;
 
 class BotController extends Controller
 {
@@ -45,7 +45,7 @@ class BotController extends Controller
 $client=new Client();
              $response=$client->request('GET', 'https://slack.com/api/chat.postMessage',
 ['query' => [
-'token' => Storage::get('bot_token.dat'),
+'token' => Credential::where('team_id', $data['team_id'])->first()->bot_user_token;
 'channel'=> $data['channel'],
 'text' => $data['text']]]);
 return json_decode($response->getBody(), true);
@@ -72,6 +72,7 @@ public function test()
             $data['text'] = "Done! See all your team's links here. :blush:";
             $data['channel'] = "#library-bot";
             $data['response_type'] = "saved";
+$data['team_id']="T";
             
             $response=$this->respond($data);
              if($response['ok']===true) {

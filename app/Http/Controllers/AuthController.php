@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use Storage;
+use App\Models\Credential;
 use GuzzleHttp\Client;
 
 class AuthController extends Controller
@@ -20,9 +20,11 @@ class AuthController extends Controller
 $response=json_decode($response->getBody(), true);
 if($response['ok']===true) {
 if(isset($response['access_token'])) {
-Storage::put('token.dat', $response['access_token']);
-Storage::put('bot_id.dat', $response['bot']['bot_user_id']);
-Storage::put('bot_token.dat', $response['bot']['bot_access_token']);
+$credential=new Credential();
+$credential->access_token=$response['access_token'];
+$credential->team_id=$response['team_id'];$credential->bot_user_id=$response['bot']['bot_user_id'];
+$credential->bot_access_token=$response['bot']['bot_access_token'];
+$credential->save();
 }
 else {
 Storage::put('token.dat', $response['stuff']['access_token']);
