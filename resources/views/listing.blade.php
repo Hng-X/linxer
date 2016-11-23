@@ -15,11 +15,11 @@
 		<header>
 			<div class="container header-container">
 				<div class="team-name">
-					<a href="/"><p>Team <span>HngX</span></p></a>
+					<a href="/">Team <span>HngX</span></a>
 				</div>
 				<div class="search-box">
 					<span><i class="fa fa-search" aria-hidden="true"></i></span>
-					<input type="search">
+					<input type="search" placeholder="eg. donald trump won">
 				</div>
 			</div>
 		</header>
@@ -42,7 +42,7 @@
 					<div class="item-details">
 						<div class="item-title">
 							<div class="item-highlight__attached" >
-								<span>Lindaikeji</span>
+								<span>Lindaikeji.com</span>
 							</div>
 							<a href="https://should-be-dynamically-generated">Shalvah has no state of origin</a>
 						</div>
@@ -70,7 +70,7 @@
 					<div class="item-details">
 						<div class="item-title">
 							<div class="item-highlight__attached" >
-								<span>Lindaikeji</span>
+								<span>Lindaikeji.com</span>
 							</div>
 							<a href="https://should-be-dynamically-generated">Shalvah has no state of origin</a>
 						</div>
@@ -98,7 +98,7 @@
 					<div class="item-details">
 						<div class="item-title">
 							<div class="item-highlight__attached" >
-								<span>Lindaikeji</span>
+								<span>Lindaikeji.com</span>
 							</div>
 							<a href="https://should-be-dynamically-generated">Shalvah has no state of origin</a>
 						</div>
@@ -126,7 +126,7 @@
 					<div class="item-details">
 						<div class="item-title">
 							<div class="item-highlight__attached" >
-								<span>Lindaikeji</span>
+								<span>Lindaikeji.com</span>
 							</div>
 							<a href="https://should-be-dynamically-generated">Shalvah has no state of origin</a>
 						</div>
