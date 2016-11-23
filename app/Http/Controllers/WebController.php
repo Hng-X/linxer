@@ -11,6 +11,8 @@ class WebController extends Controller
 {
     public function viewLinks($teamSlug)
     {
+                      $teamName="HngX";
+$teamId="Txjrd24";
              //parse $teamId and $teamName from $teamSlug
         if (isset($_GET["query"])) {
         $query=$_GET["query"];
