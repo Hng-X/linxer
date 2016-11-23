@@ -21,7 +21,7 @@ Route::get('/links/{teamSlug}', 'WebController@viewLinks');
 Route::post('/links', 'BotController@receive');
 
 //test route to test bot response
-Route::get('/'text', 'BotController@test');
+Route::get('/test', 'BotController@test');
 
 // $router->group(['prefix' => 'auth/slack', 'namespace' => 'Auth'], function ($router) {
 //     $router->get('/callback/user', ['as' =>'auth.slack.callback.user', 'uses' => 'AuthController@handleProviderCallbackUser']);
