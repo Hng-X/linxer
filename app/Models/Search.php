@@ -1,15 +1,18 @@
 <?php
 namespace App/Models;
 
-Class Search {
+class Search {
 
-	public $search_term
+	public $search_term;
 
-	public $search_tags
+	public $search_tags;
 
-	public $search_channel
+	public $search_channel;
 
-	public $seach_user
+	public $seach_user;
 
-	public $search_results
+	public $search_results;
+
+protected $guarded=[];
+
 }

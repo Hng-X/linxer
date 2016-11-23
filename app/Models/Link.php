@@ -1,11 +1,13 @@
 <?php
 namespace App\Models;
 
-Class Link extends BaseModel {
+class Link extends BaseModel {
 
 	protected $valid;
 
 	protected $status_code;
+
+protected $guarded=[];
 
 	protected $table = 'links';
 
