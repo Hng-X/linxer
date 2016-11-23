@@ -43,11 +43,12 @@ class BotController extends Controller
     {
 //if ($data['response_type'] == 'saved')
 $client=new Client();
-             $client->request('GET', 'https://slack.com/api/chat.postMessage',
+             $response=$client->request('GET', 'https://slack.com/api/chat.postMessage',
 ['query' => [
 'token' => Storage::get('bot_token.dat'),
 'channel'=> $data['channel'],
 'text' => $data['text']]]);
+return json_decode($response->getBody(), true);
     }
 
     public function parseText($text)
@@ -64,4 +65,17 @@ $client=new Client();
              }
         }
     }
+
+public function test()
+{
+        $data = [];
+            $data['text'] = "Done! See all your team's links here. :blush:";
+            $data['channel'] = "#library-bot';
+            $data['response_type'] = "saved";
+            
+            $response=$this->respond($data');
+             if($response['ok']===true) {
+return view('authorize', ['result' => "OK"];
+} else return view('authorize', ['result' => $response['error']];
+}
 }
