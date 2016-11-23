@@ -60,7 +60,7 @@ return json_decode($response->getBody(), true);
                                       'link' => $tokens[2],
                                       'tags' => array_slice($tokens, 3));
              } else if ($tokens[1]=="find" || $tokens[1]=="search") {
-                return array( 'type' => 'search'
+                return array( 'type' => 'search',
                                       'query_terms' =>  array_slice($tokens, 2));
              }
         }
