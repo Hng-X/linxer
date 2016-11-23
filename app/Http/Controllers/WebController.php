@@ -14,6 +14,7 @@ class WebController extends Controller
                       $teamName="HngX";
 $teamId="Txjrd24";
 $query="";
+$results=[];
              //parse $teamId and $teamName from $teamSlug
         if (isset($_GET["query"])) {
         $query=$_GET["query"];
