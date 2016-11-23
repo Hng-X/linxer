@@ -70,12 +70,13 @@ public function test()
 {
         $data = [];
             $data['text'] = "Done! See all your team's links here. :blush:";
-            $data['channel'] = "#library-bot';
+            $data['channel'] = "#library-bot";
             $data['response_type'] = "saved";
             
-            $response=$this->respond($data');
+            $response=$this->respond($data);
              if($response['ok']===true) {
-return view('authorize', ['result' => "OK"];
-} else return view('authorize', ['result' => $response['error']];
+return view('authorize', ['result' => "OK"]);
+} else return view('authorize', ['result' => $response['error']]);
 }
+
 }
