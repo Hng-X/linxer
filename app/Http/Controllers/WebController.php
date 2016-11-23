@@ -13,6 +13,7 @@ class WebController extends Controller
     {
                       $teamName="HngX";
 $teamId="Txjrd24";
+$query="";
              //parse $teamId and $teamName from $teamSlug
         if (isset($_GET["query"])) {
         $query=$_GET["query"];
@@ -20,7 +21,7 @@ $teamId="Txjrd24";
             return view('listing', ["teamName" => $teamName, "query" => $query, "results" => $results]);
         } else {
             //$results=getAllLinks($teamId);
-            return view('listing', ["teamName" => $teamName, "query" => $query, "results" => $results]);
+            return view('listing', ["teamName" => $teamName, "results" => $results]);
         }
     }
 
