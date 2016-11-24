@@ -15,14 +15,15 @@ class AuthController extends Controller
          $response=$client->request('GET', 'https://slack.com/api/oauth.access',
 ['query' => ['client_id' => '104593454705.107498116711',
 'client_secret' => env('SLACK_CLIENT_SECRET'),
-'redirect_uri' => env('SLACK_REDIRECT_CALLBACK_URL'.'/add'),
+//'redirect_uri' => urlencode(env('SLACK_REDIRECT_CALLBACK_URL').'/add'),
 'code' => $code]]);
 $response=json_decode($response->getBody(), true);
-if($response['ok']=== true) {
+if($response['ok']===true) {
 if(isset($response['access_token'])) {
 $credential=new Credential();
 $credential->access_token=$response['access_token'];
-$credential->team_id=$response['team_id'];$credential->bot_user_id=$response['bot']['bot_user_id'];
+$credential->team_id=$response['team_id'];
+$credential->bot_user_id=$response['bot']['bot_user_id'];
 $credential->bot_access_token=$response['bot']['bot_access_token'];
 $credential->save();
 }
@@ -34,7 +35,7 @@ $result="Authorized";
 else {
 $result=$response['error'];
 }
-return view('add', ['result' => $result]);
+return view('Auth/add', ['result' => $result]);
     }
 
     /* Redirects user to teams links Page
@@ -48,7 +49,7 @@ return view('add', ['result' => $result]);
       $response=$client->request('GET', 'https://slack.com/api/oauth.access',
       ['query' => ['client_id' => '104593454705.107498116711',
       'client_secret' => env('SLACK_CLIENT_SECRET'),
-      'redirect_uri' => env('SLACK_REDIRECT_CALLBACK_URL'.'/signin'),
+      //'redirect_uri' => urlencode(env('SLACK_REDIRECT_CALLBACK_URL').'/signin'),
       'code' => $code]]);
       $response=json_decode($response->getBody(), true);
       if($response['ok']===true)
@@ -66,7 +67,7 @@ return view('add', ['result' => $result]);
         {
             $errorMsg=$response['error'];
         }
-        return view('authorize', ['result' => $errorMsg]);
+        return view('Auth/signin', ['result' => $errorMsg]);
       }
     }
 
@@ -74,10 +75,13 @@ return view('add', ['result' => $result]);
 
     public function getUserFromToken($token)
     {
+      $client = new Client();
       $options = ['headers' => ['Accept' => 'application/json']];
       $endpoint = 'https://slack.com/api/users.identity?token='.$token;
-      $response = $this->getHttpClient()->get($endpoint, $options)->getBody()->getContents();
-
-      return json_decode($response, true);
+      $response = $client->request('GET', $endpoint);
+      $response2 = json_decode($response->getBody(), true);
+      //$response = $this->getHttpClient()->get($endpoint, $options)->getBody()->getContents(
+      return $response2;
+      //return json_decode($response, true);
     }
 }
