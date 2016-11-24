@@ -15,10 +15,10 @@ class AuthController extends Controller
          $response=$client->request('GET', 'https://slack.com/api/oauth.access',
 ['query' => ['client_id' => '104593454705.107498116711',
 'client_secret' => env('SLACK_CLIENT_SECRET'),
-'redirect_uri' => urlencode(env('APP_URL').'/authorize'),
+'redirect_uri' => env('SLACK_REDIRECT_CALLBACK_URL'.'/add'),
 'code' => $code]]);
 $response=json_decode($response->getBody(), true);
-if($response['ok']===true) {
+if($response['ok']=== true) {
 if(isset($response['access_token'])) {
 $credential=new Credential();
 $credential->access_token=$response['access_token'];
@@ -34,7 +34,7 @@ $result="Authorized";
 else {
 $result=$response['error'];
 }
-return view('authorize', ['result' => $result]);
+return view('add', ['result' => $result]);
     }
 
     /* Redirects user to teams links Page
@@ -48,7 +48,7 @@ return view('authorize', ['result' => $result]);
       $response=$client->request('GET', 'https://slack.com/api/oauth.access',
       ['query' => ['client_id' => '104593454705.107498116711',
       'client_secret' => env('SLACK_CLIENT_SECRET'),
-      'redirect_uri' => urlencode(env('APP_URL').'/signin'),
+      'redirect_uri' => env('SLACK_REDIRECT_CALLBACK_URL'.'/signin'),
       'code' => $code]]);
       $response=json_decode($response->getBody(), true);
       if($response['ok']===true)
