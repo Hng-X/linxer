@@ -20,7 +20,7 @@ class CreateLinksTable extends Migration
             $table->string('title')->nullable();
             $table->string('user_id');
             $table->string('channel_id');
-            $table->timestamps();
+            $table->nullableTimestamps();
             $table->softDeletes();
             
             $table->index('user_id');

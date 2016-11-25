@@ -19,8 +19,7 @@ class CreateCredentialsTable extends Migration
             $table->string('bot_access_token');
             $table->string('bot_user_id');
             $table->string('access_token');
-            $table->timestamps();
-            $table->timestamp('deleted_at');
+               $table->nullableTimestamps();
 
         });
     }
