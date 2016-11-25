@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 /**
  * Handles requests through the browser ie at the live site
  */
@@ -11,13 +9,13 @@ class WebController extends Controller
 {
     public function viewLinks($teamSlug)
     {
-                      $teamName="HngX";
-$teamId="Txjrd24";
-$query="";
-$results=[];
-             //parse $teamId and $teamName from $teamSlug
+        $teamName = "HngX";
+        $teamId = "Txjrd24";
+        $query = "";
+        $results = [];
+        //parse $teamId and $teamName from $teamSlug
         if (isset($_GET["query"])) {
-        $query=$_GET["query"];
+            $query = $_GET["query"];
             //$results=search($teamId, $query);
             return view('listing', ["teamName" => $teamName, "query" => $query, "results" => $results]);
         } else {
