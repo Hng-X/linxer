@@ -64,7 +64,7 @@ class BotController extends Controller
         $client = new Client();
         $response = $client->request('GET', 'https://slack.com/api/chat.postMessage',
             ['query' => [
-                'token' => Credential::where('team_id', $data['team_id'])->first()->bot_user_token,
+                'token' => Credential::where(['team_id', $data['team_id']])->first()->bot_access_token,
                 'channel' => $data['channel'],
                 'text' => $data['text']
             ]
