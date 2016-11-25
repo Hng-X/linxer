@@ -15,7 +15,8 @@ protected $guarded=[];
     	if (is_array(attributes)){
 	        parent::__construct($attributes); // Eloquent
         } else {
-        	$parsed = $this->parser($attributes)
+        	$parsed = $this->parser($attributes);
+        }
         	if (!this->verify_url($parsed['url'])){
 
         	} else {
