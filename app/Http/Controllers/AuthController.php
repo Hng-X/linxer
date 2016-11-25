@@ -57,11 +57,16 @@ return view('Auth/add', ['result' => $result]);
         if(isset($response['access_token']))
         {
           $access_token=$response['access_token'];
-          $slackUsers = $this->getUserFromToken($access_token);
-          $teamName = $slackUsers['team']['name'];
-          $teamId = $slackUsers['team']['id'];
 
-          return redirect("/links/$teamId-$teamName");
+          $interactUser=$client->request('GET', 'https://slack.com/api/users.identity?token'.$access_token);
+          $interactResponse= json_decode($interactUser->getBody()->getContents(), true);
+
+          var_dump($interactResponse);
+
+          //$teamId = $interactResponse['team']['id'];
+          //teamName = $interactResponse['team']['name'];
+
+          //return redirect("/links/$teamId-$teamName");
         }
         else
         {
@@ -69,19 +74,5 @@ return view('Auth/add', ['result' => $result]);
         }
         return view('Auth/signin', ['result' => $errorMsg]);
       }
-    }
-
-    /* Get User details from slack generated token */
-
-    public function getUserFromToken($token)
-    {
-      $client = new Client();
-      $options = ['headers' => ['Accept' => 'application/json']];
-      $endpoint = 'https://slack.com/api/users.identity?token='.$token;
-      $response = $client->request('GET', $endpoint);
-      $response2 = json_decode($response->getBody(), true);
-      //$response = $this->getHttpClient()->get($endpoint, $options)->getBody()->getContents(
-      return $response2;
-      //return json_decode($response, true);
     }
 }
