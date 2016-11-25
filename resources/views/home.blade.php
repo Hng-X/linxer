@@ -17,7 +17,7 @@
 				</div>
 				<div class="signin">
 					<p>Already enabled Linxer?</p>
-					<a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711&redirect_uri={{ urlencode(env('APP_URL').'/signin') }}">
+					<a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711&redirect_uri=http://linxer.herokuapp.com/Auth/signin">
 						<button class="signin-btn"><span>See your links</span></button>
 					</a>
 				</div>
@@ -30,14 +30,14 @@
 					<h1>"Your team has more than 10,000 messages in its archive, so although there are older messages than are shown below, you can't see them."</h1> <h2>Sad, right? That's why Linxer is here—so you can save the stuff that matters.</h2>
 				</div>
 				<div class="cta-link">
-					<a href="https://slack.com/oauth/authorize?scope=incoming-webhook,bot&client_id=104593454705.107498116711&redirect_uri={{ urlencode(env('APP_URL').'/authorize') }}">
+					<a href="https://slack.com/oauth/authorize?scope=incoming-webhook,bot&client_id=104593454705.107498116711">
 						<button class="cta-btn"><span>Add Linxer to your Slack</span></button>
 					</a>
 				</div>
 			</div>
 
 			<div class="cta-img">
-				
+
 			</div>
 		</section>
 

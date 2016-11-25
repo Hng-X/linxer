@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use Illuminate\Http\Request;
 use App\Models\Link;
+=======
+>>>>>>> 03030b6375d5abd394236c49d6373308ad0ea94a
 /**
  * Handles requests through the browser ie at the live site
  */
@@ -30,6 +33,7 @@ class WebController extends Controller
 //            //$results=getAllLinks($teamId);
 //            return view('listing', ["teamName" => $teamName, "results" => $results]);
 //        }
+
     }
     
 

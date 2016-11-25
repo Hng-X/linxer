@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "laravel/socialite": "^2.0",
         "guzzlehttp/guzzle": "~6.0",
-        "fzaninotto/faker": "^1.6"
+        "fzaninotto/faker": "^1.6",
+        "bramdevries/oauth2-slack": "^0.1.0"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
