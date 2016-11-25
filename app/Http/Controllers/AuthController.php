@@ -25,8 +25,6 @@ class AuthController extends Controller
                 $credential->bot_user_id = $response['bot']['bot_user_id'];
                 $credential->bot_access_token = $response['bot']['bot_access_token'];
                 $credential->save();
-            } else {
-                Storage::put('token.dat', $response['stuff']['access_token']);
             }
             $result = "Authorized";
         } else {

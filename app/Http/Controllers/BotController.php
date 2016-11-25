@@ -82,8 +82,8 @@ class BotController extends Controller
 
         $response = $this->respond($data);
         if ($response['ok'] === true) {
-            return view('authorize', ['result' => "OK"]);
-        } else return view('authorize', ['result' => $response['error']]);
+            return view('Auth/add', ['result' => "OK"]);
+        } else return view('Auth/add', ['result' => $response['error']]);
     }
 
 }
