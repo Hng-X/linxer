@@ -30,10 +30,10 @@ class BotController extends Controller
         if ($this->parseText($text)['type'] == 'add') {
             $data['text'] = "Done! See all your team's links here. :blush:";
             $data['channel'] = $request->input('event.channel');
+            $data['team_id'] = $request->input('team_id');
             $data['response_type'] = "saved";
 
             $this->respond($data);
-
         }
 
     }
@@ -75,7 +75,7 @@ class BotController extends Controller
     public function test()
     {
         $data = [];
-        $data['text'] = "Higuys... @channel :blush:";
+        $data['text'] = "Hi guys... @channel :blush:";
         $data['channel'] = "#bot-testing";
         $data['response_type'] = "saved";
         $data['team_id'] = "T32HFDCLR";
