@@ -11,7 +11,7 @@ class BaseModel extends Model {
 	use SoftDeletes;
 
 	//add a date column
-	protected $dates = ['deleted_at'];
+	//protected $dates = ['deleted_at'];
 
 
     public function selectQuery($sql_stmt) {

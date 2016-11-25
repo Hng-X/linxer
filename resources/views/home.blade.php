@@ -17,7 +17,7 @@
 				</div>
 				<div class="signin">
 					<p>Already enabled Linxer?</p>
-					<a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711">
+					<a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711&redirect_uri=http://linxer.herokuapp.com/Auth/signin">
 						<button class="signin-btn"><span>See your links</span></button>
 					</a>
 				</div>

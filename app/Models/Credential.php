@@ -1,8 +1,8 @@
 <?php
 namespace App\Models;
 
-class Credential extends BaseModel {
+class Credential extends BaseModel
+ {
 
-
-protected $guarded=[];
+   protected $guarded=[];
 }

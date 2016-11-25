@@ -15,7 +15,6 @@ class AuthController extends Controller
          $response=$client->request('GET', 'https://slack.com/api/oauth.access',
 ['query' => ['client_id' => '104593454705.107498116711',
 'client_secret' => env('SLACK_CLIENT_SECRET'),
-//'redirect_uri' => urlencode(env('SLACK_REDIRECT_CALLBACK_URL').'/add'),
 'code' => $code]]);
 $response=json_decode($response->getBody(), true);
 if($response['ok']===true) {
@@ -49,30 +48,23 @@ return view('Auth/add', ['result' => $result]);
       $response=$client->request('GET', 'https://slack.com/api/oauth.access',
       ['query' => ['client_id' => '104593454705.107498116711',
       'client_secret' => env('SLACK_CLIENT_SECRET'),
-      //'redirect_uri' => urlencode(env('SLACK_REDIRECT_CALLBACK_URL').'/signin'),
+      'redirect_uri' =>'http://linxer.herokuapp.com/Auth/signin',
       'code' => $code]]);
       $response=json_decode($response->getBody(), true);
+      $team_id = $response['team']['id'];
+      $access_token = $response['access_token'];
       if($response['ok']===true)
       {
-        if(isset($response['access_token']))
-        {
-          $access_token=$response['access_token'];
-
-          $interactUser=$client->request('GET', 'https://slack.com/api/users.identity?token'.$access_token);
-          $interactResponse= json_decode($interactUser->getBody()->getContents(), true);
-
-          var_dump($interactResponse);
-
-          //$teamId = $interactResponse['team']['id'];
-          //teamName = $interactResponse['team']['name'];
-
-          //return redirect("/links/$teamId-$teamName");
-        }
+        $interactUser=$client->request('GET', 'https://slack.com/api/users.identity?token='.$access_token);
+        $interactResponse= json_decode($interactUser->getBody()->getContents(), true);
+          $teamId = $interactResponse['team']['id'];
+          $teamName = $interactResponse['team']['name'];
+          return redirect("/links/$teamId-$teamName");
+      }
         else
         {
             $errorMsg=$response['error'];
         }
         return view('Auth/signin', ['result' => $errorMsg]);
-      }
     }
 }
