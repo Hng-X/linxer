@@ -17,7 +17,8 @@ class WebController extends Controller
         
         $team = explode('-', $teamSlug);
         $links = Link::where('team_id', $team[0])->get();
-        print_r($links);
+        return view("listing", ["links" => $links]);
+        return view("listing", ["teamName" => $team[1]])
         
         
              //parse $teamId and $teamName from $teamSlug
