@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Middleware\EventsMiddleware;
+use App\Jobs\HandleSlackEvent;
 use App\Models\Credential;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class BotController extends Controller
 {
@@ -24,35 +26,24 @@ class BotController extends Controller
      */
     public function receive(Request $request)
     {
-        response('Ok', 200);
-        $text = $request->input('event.text');
-        $data = [];
-        if ($this->parseText($text)['type'] == 'add') {
-            $data['text'] = "Done! See all your team's links here. :blush:";
-            $data['channel'] = $request->input('event.channel');
-            $data['team_id'] = $request->input('team_id');
-            $data['response_type'] = "saved";
-
-            $this->respond($data);
-        }
-
+        $data = $request->all();
+        Log::info("Received request: " . print_r($data, true));
+        dispatch(new HandleSlackEvent($data));
+        return response('Ok', 200);
     }
 
-    public function parseText($text)
+    public function test()
     {
-        $tokens = explode(' ', $text);
-        if ($tokens[0] == "@linxer") {
-            if ($tokens[1] == "add" || $tokens[1] == "save") {
-                return array(
-                    'type' => 'add',
-                    'link' => $tokens[2],
-                    'tags' => array_slice($tokens, 3));
-            } else if ($tokens[1] == "find" || $tokens[1] == "search") {
-                return array(
-                    'type' => 'search',
-                    'query_terms' => array_slice($tokens, 2));
-            }
-        }
+        $data = [];
+        $data['text'] = "Hi guys... @channel :blush:";
+        $data['channel'] = "#bot-testing";
+        $data['response_type'] = "saved";
+        $data['team_id'] = "T32HFDCLR";
+
+        $response = $this->respond($data);
+        if ($response['ok'] === true) {
+            return view('Auth/add', ['result' => "OK"]);
+        } else return view('Auth/add', ['result' => $response['error']]);
     }
 
     /**
@@ -70,20 +61,6 @@ class BotController extends Controller
             ]
             ]);
         return json_decode($response->getBody(), true);
-    }
-
-    public function test()
-    {
-        $data = [];
-        $data['text'] = "Hi guys... @channel :blush:";
-        $data['channel'] = "#bot-testing";
-        $data['response_type'] = "saved";
-        $data['team_id'] = "T32HFDCLR";
-
-        $response = $this->respond($data);
-        if ($response['ok'] === true) {
-            return view('Auth/add', ['result' => "OK"]);
-        } else return view('Auth/add', ['result' => $response['error']]);
     }
 
 }
