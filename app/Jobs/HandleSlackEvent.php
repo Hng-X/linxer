@@ -8,6 +8,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Log;
 
 class HandleSlackEvent implements ShouldQueue
 {
@@ -40,7 +41,8 @@ class HandleSlackEvent implements ShouldQueue
             $data['team_id'] = $this->request['team_id'];
             $data['response_type'] = "saved";
 
-            $this->respond($data);
+            $response = $this->respond($data);
+            Log::info(print_r($response, true));
         }
     }
 

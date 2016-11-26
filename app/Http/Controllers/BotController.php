@@ -7,6 +7,7 @@ use App\Jobs\HandleSlackEvent;
 use App\Models\Credential;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class BotController extends Controller
 {
@@ -25,7 +26,9 @@ class BotController extends Controller
      */
     public function receive(Request $request)
     {
-        dispatch(new HandleSlackEvent($request->all()));
+        $data = $request->all();
+        Log::info(print_r($data, true));
+        dispatch(new HandleSlackEvent($data));
         return response('Ok', 200);
     }
 
