@@ -17,11 +17,10 @@ protected $guarded=[];
         } else {
         	$parsed = $this->parser($attributes);
         }
-        	if (!this->verify_url($parsed['url'])){
+        if (!this->verify_url($parsed['url'])){
 
-        	} else {
+        } else {
 
-        	}
         }
         // Your construct code.
     }
