@@ -35,19 +35,20 @@ class HandleSlackEvent implements ShouldQueue
     public function handle()
     {
         //determine what kind of message this is: add, search, or not for us
-        $text = $this->request['event']['text'];
-        $text = $this->getMessageTypeAndParseText($text);
+        $rawText = $this->request['event']['text'];
+        $parsedText = $this->getMessageTypeAndParseText($rawText);
 
         $data = [];
-        if ($text['type'] == 'add') {
+        if ($parsedText['type'] == 'add') {
             //add link to db
-            if ($url = $this->sanitizeAndVerifyUrl($text["link"])) {
+            $url = $this->sanitizeAndVerifyUrl($parsedText["link"]);
+            if ($url) {
                 $attributes = array(
                     "team_id" => $this->request['team_id'],
                     "url" => $url,
                     "user_id" => $this->request['event']['user'],
                     "channel_id" => $this->request['event']['channel'],
-                    "title" => $this->getTitle($text["link"])
+                    "title" => $this->getTitle($url)
                 );
                 $link = Link::create($attributes);
 
