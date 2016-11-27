@@ -1,21 +1,52 @@
-.header-container, .links-row, item-info {
-	display: flex
+body {
+	background-image: linear-gradient(to top right, #307ea2, #31708f,#00c7ff) !important;  
+	min-height: 655px;
 }
-.header-container {
-	justify-content: space-around;
+.header-container, .links-row, item-info {
+	display: flex;
+}
+header {
+	justify-content: center;
 	background-color: #e2e2e2;
-	height: 50px;
+	padding: 40px 0;
+}
+.header-container{
+	justify-content: space-between;
     align-items: center;
 	
 	.team-name {
-		font-size: 25px;
+		font-size: 35px;
     	color: blueviolet;
+		width: 70%;
+		line-height: 40px;
+	}
+	.search-box {
+		input[type="search"] {
+			padding: 10px 48px 10px 12px;
+			background-color: gainsboro;
+			border: 1px solid rgba(204, 204, 204, 0.85);
+			
+			&:active, &:focus{
+				background-color: #ffffff;
+				box-shadow: 1px 1px 15px 3px #808080;
+				outline: none;
+				border-radius: 4px;
+			}
+				
+		}
+	}
+}
+.welcome-note {
+	margin-top: 30px;
+	
+	h4 {
+		margin-top: 0;
 	}
 }
 .links {
 //	background: url("{{ env('APP_URL') }}/img/background-pattern.png") repeat;
-	background-image: linear-gradient(to top right, #f83737, #fa9241);
-	color: #ffffff;
+//	background-image: linear-gradient(to top right, #f83737, #fa9241);
+//	color: #ffffff;
 }
 .links-row {
 	justify-content: space-around;
@@ -24,11 +55,17 @@
 	.links-row__item {
 		width: 24%;
 		float: left;
-		padding: 1px 5px;
-		background-color: #8ad0c8;
+		padding: 10px 15px;
+		background-color: #f5f5f5;;
+		margin-right: 1%;
+		border-radius: 2px;
 		
 		&:hover {
-			box-shadow: 2px 1px 2px 2px #b4b4b4;
+			cursor: pointer;
+			box-shadow: 4px 5px 16px 3px #696A84;
+		}
+		&:last-child {
+			margin-right: 0;
 		}
 		
 		.item-source p{
@@ -56,6 +93,11 @@
 						font-size: 15px;
 					}
 				}
+			}
+			.item-highlight__details {
+				background-color: rgba(238, 238, 238, 0.92);
+				padding: 5px 7px;
+    			border-left: 1px solid #a6a6ef;
 			}
 		}
 		.item-info {

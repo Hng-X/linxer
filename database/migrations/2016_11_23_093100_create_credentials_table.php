@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDomainTable extends Migration
+class CreateCredentialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateDomainTable extends Migration
      */
     public function up()
     {
-        Schema::create('domains', function (Blueprint $table) {
+           Schema::create('credentials', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
-            $table->timestamps();
-            $table->softDeletes();
+            $table->string('team_id');
+            $table->string('bot_access_token');
+            $table->string('bot_user_id');
+            $table->string('access_token');
+               $table->nullableTimestamps();
+
         });
     }
 
@@ -28,6 +31,6 @@ class CreateDomainTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('domains');
+        Schema::dropIfExists('credentials');
     }
 }

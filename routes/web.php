@@ -14,14 +14,16 @@
 Route::get('/', function () {
     return view('home');
 });
-//Route::get('/links/{team-name}', 'WebController@viewLinks');
-Route::get('/links', function () {
-    return view('listing');
-});
 
-// $router->group(['prefix' => 'auth/slack', 'namespace' => 'Auth'], function ($router) {
-//     $router->get('/callback/user', ['as' =>'auth.slack.callback.user', 'uses' => 'AuthController@handleProviderCallbackUser']);
-//     $router->get('/callback', 'AuthController@handleProviderCallback');
-//     $router->get('/', ['as' => 'auth.slack', 'uses' => 'AuthController@redirectToProvider']);
-// });
-	Route::get('/authorize', 'AuthController@handleProviderCallback');
+Route::get('/links/{teamSlug}', 'WebController@viewLinks');
+
+//---- bot events route
+Route::post('/links', 'BotController@receive');
+
+//test route to test bot response
+Route::get('/test', 'BotController@test');
+
+/* Slack Authorization Routers */
+
+Route::get('/Auth/add', 'AuthController@authorizeSlack');
+Route::get('/Auth/signin', 'AuthController@redirectUsertoTeamLinks');
