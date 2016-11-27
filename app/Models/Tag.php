@@ -5,8 +5,7 @@ class Tag extends BaseModel {
 
     protected $table = 'tags';
 
-protected $guarded=[];
-
+	protected $guarded=[];
 
     public function links()
     {
