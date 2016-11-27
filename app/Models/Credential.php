@@ -6,3 +6,4 @@ class Credential extends BaseModel
 
    protected $guarded=[];
 }
+
