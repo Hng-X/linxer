@@ -15,7 +15,7 @@
 		<header>
 			<div class="container header-container">
 				<div class="team-name">
-					<a href="/">Team <span><?php echo $teamName ?></span></a>
+					<a href="/">Team <span>{{ $team[1] }}</span></a>
 				</div>
 				<div class="search-box">
 					<span><i class="fa fa-search" aria-hidden="true"></i></span>
@@ -37,7 +37,7 @@
 			<div class="container links-row">
 				<div class="links-row__item">
 					<div class="item-source">
-						<p><span>{{ $teamName }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
+						<p><span>{{ $team[1] }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
 					</div>
 					<div class="item-details">
 						<div class="item-title">
@@ -65,7 +65,7 @@
 				</div>
 				<div class="links-row__item">
 					<div class="item-source">
-						<p><span>{{ teamName }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
+						<p><span>{{ $team[1] }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
 					</div>
 					<div class="item-details">
 						<div class="item-title">
@@ -93,7 +93,7 @@
 				</div>
 				<div class="links-row__item">
 					<div class="item-source">
-						<p><span>{{ teamName }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
+						<p><span>{{ $team[1] }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
 					</div>
 					<div class="item-details">
 						<div class="item-title">
@@ -121,7 +121,7 @@
 				</div>
 				<div class="links-row__item">
 					<div class="item-source">
-						<p><span>{{ teamName }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
+						<p><span>{{ $team[1] }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
 					</div>
 					<div class="item-details">
 						<div class="item-title">
