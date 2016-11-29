@@ -15,7 +15,7 @@
 		<header>
 			<div class="container header-container">
 				<div class="team-name">
-					<a href="/">Team <span>HNGx</span></a>
+					<a href="/">Team <span>{{ $teamName }}</span></a>
 				</div>
 				<div class="search-box">
 					<span><i class="fa fa-search" aria-hidden="true"></i></span>
