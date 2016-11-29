@@ -37,7 +37,7 @@
 			<div class="container links-row">
 				<div class="links-row__item">
 					<div class="item-source">
-						<p><span>HNGx</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
+						<p><span>{{ $teamName }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
 					</div>
 					<div class="item-details">
 						<div class="item-title">
@@ -65,7 +65,7 @@
 				</div>
 				<div class="links-row__item">
 					<div class="item-source">
-						<p><span>HNGx</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
+						<p><span>{{ $teamName }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
 					</div>
 					<div class="item-details">
 						<div class="item-title">
@@ -93,7 +93,7 @@
 				</div>
 				<div class="links-row__item">
 					<div class="item-source">
-						<p><span>HNGx</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
+						<p><span>{{ $teamName }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
 					</div>
 					<div class="item-details">
 						<div class="item-title">
@@ -121,7 +121,7 @@
 				</div>
 				<div class="links-row__item">
 					<div class="item-source">
-						<p><span>HNGx</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
+						<p><span>{{ $teamName }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>
 					</div>
 					<div class="item-details">
 						<div class="item-title">
