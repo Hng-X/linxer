@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="{{ env('APP_URL') }}/css/listing.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/c8c67c47f4.js"></script>
 </head>
 <body>
 <div class="links-container">
@@ -19,7 +19,7 @@
 				</div>
 				<div class="search-box">
 					<span><i class="fa fa-search" aria-hidden="true"></i></span>
-					<input type="search" placeholder="eg. donald trump won">
+                    <input type="search" placeholder="Enter a keyword">
 				</div>
 			</div>
 		</header>
