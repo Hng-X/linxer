@@ -96,11 +96,16 @@ class HandleSlackEvent implements ShouldQueue
                     }
                 }
                 else {
-                    $outputtext = "Oga, i no see *$tag_term* for here o!";
+                   // $outputtext = "Oga, i no see *$tag_term* for here o!";
+                    $output_text = [
+                                    "head" =>  "yo! i got `$num` $num_link on *$tag_term* \n\n",
+                                    "body" =>   "Oga, i no see *$tag_term* for here o!",
+                                    "team_url" => "\n\n See all your team's links <$teamLinksUrl|here>"
+                                ];
                 }
                 
                 //respond                
-                $data['text'] = $outputtext;
+                $data['text'] = $output_text;
                 $data['channel'] = $this->request['event']['channel'];
                 $data['team_id'] = $this->request['team_id'];
                 $data['response_type'] = "saved";
