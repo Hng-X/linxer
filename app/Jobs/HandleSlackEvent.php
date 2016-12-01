@@ -85,12 +85,12 @@ class HandleSlackEvent implements ShouldQueue
                     $output_text = [
                                     "head" =>  "yo! i got `$num` $num_link on *$tag_term* \n\n",
                                     "body" =>   "",
-                                    "team_url" => "\n\n See all your team's <links$teamLinksUrl|here>"
+                                    "team_url" => "\n\n See all your team's links <$teamLinksUrl|here>"
                                 ];
                     $sn = 1;
 
                     foreach ($check as $link) {
-                        $content = "$sn <$link['url']|$link['title']> \n";
+                        $content = "$sn <$link->url|$link->title>\n";
                         array_push($output_text['body'], $content);
                         $sn++;
                     }
