@@ -105,7 +105,7 @@ class HandleSlackEvent implements ShouldQueue
                 }
                 
                 //respond                
-                $data['text'] = $output_text;
+                $data['text'] = array($output_text);
                 $data['channel'] = $this->request['event']['channel'];
                 $data['team_id'] = $this->request['team_id'];
                 $data['response_type'] = "saved";
