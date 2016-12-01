@@ -66,7 +66,7 @@ class HandleSlackEvent implements ShouldQueue
         }
         elseif ($parsedText['type'] == 'search') {
             //check if the tag corresponds to any link for the particular team
-            /*
+            
             $tag_term = $parsedText['query_terms'];
 
             $team = $this->request['team_id'];
@@ -98,16 +98,16 @@ class HandleSlackEvent implements ShouldQueue
                 else {
                     $outputtext = "Oga, i no see *$tag_term* for here o!";
                 }
-                */
+                
                 //respond                
-                $data['text'] = "no";
+                $data['text'] = $outputtext;
                 $data['channel'] = $this->request['event']['channel'];
                 $data['team_id'] = $this->request['team_id'];
                 $data['response_type'] = "saved";
 
                 $response = $this->respond($data);
                 Log::info("Received search response:" . print_r($response, true));            
-           // }
+            }
         }
     }
 
