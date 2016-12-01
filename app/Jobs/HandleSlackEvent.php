@@ -143,9 +143,9 @@ class HandleSlackEvent implements ShouldQueue
             $str = trim(preg_replace('/\s+/', ' ', $str)); // supports line breaks inside <title>
             preg_match("/\<title\>(.*)\<\/title\>/i", $str, $title); // ignore case
             return $title[1];
-        } catch (ErrorException $e) {
-        return parse_url($url)["host"];
         }
+       } catch (ErrorException $e) {
+        return parse_url($url)["host"];
         }
     }
 
