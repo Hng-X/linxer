@@ -98,7 +98,7 @@ class HandleSlackEvent implements ShouldQueue
                 else {
                    // $outputtext = "Oga, i no see *$tag_term* for here o!";
                     $output_text = [
-                                    "head" =>  "yo! i got `$num` $num_link on *$tag_term* \n\n",
+                                    "head" =>  "",
                                     "body" =>   "Oga, i no see *$tag_term* for here o!",
                                     "team_url" => "\n\n See all your team's links <$teamLinksUrl|here>"
                                 ];
