@@ -107,7 +107,7 @@ class HandleSlackEvent implements ShouldQueue
 
                 $response = $this->respond($data);
                 Log::info("Received search response:" . print_r($response, true));            
-            }
+           // }
         }
     }
 
