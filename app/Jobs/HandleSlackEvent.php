@@ -53,8 +53,7 @@ class HandleSlackEvent implements ShouldQueue
                 $link = Link::create($attributes);
 
                 //respond
-                $teamName = "";
-                $teamLinksUrl = env('APP_URL') . "/links/" . $this->request['team_id'] . "-" . $teamName;
+                $teamLinksUrl = "https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711&redirect_uri=http://linxer.herokuapp.com/Auth/signin";
                 $data['text'] = "Done! :+1: See all your team's links <$teamLinksUrl|here>. ";
                 $data['channel'] = $this->request['event']['channel'];
                 $data['team_id'] = $this->request['team_id'];
