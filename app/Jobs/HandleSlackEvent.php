@@ -96,7 +96,7 @@ class HandleSlackEvent implements ShouldQueue
                     }
                 }
                 else {
-                    $output_text = "Oga, i no see *$tag_term* for here o!";
+                    $output_text = ["Oga, i no see *$tag_term* for here o!"];
                 }
 
                 //respond                
