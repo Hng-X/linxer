@@ -81,7 +81,7 @@ class HandleSlackEvent implements ShouldQueue
 
                     //$get_links = [];
                     $teamName = "";
-                    $teamLinksUrl = env('APP_URL') . "/links/" . $this->request['team_id'] . "-" . $teamName;
+                    $teamLinksUrl = "https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711&redirect_uri=http://linxer.herokuapp.com/Auth/signin";
                     $output_text = [
                                     "head" =>  "yo! i got `$num` $num_link on *$tag_term* \n\n",
                                     "body" =>   "",
@@ -90,7 +90,7 @@ class HandleSlackEvent implements ShouldQueue
                     $sn = 1;
 
                     foreach ($check as $link) {
-                        $content = "$sn. <$link['url']|$link['title']> \n";
+                        $content = "$sn <$link['url']|$link['title']> \n";
                         array_push($output_text['body'], $content);
                         $sn++;
                     }
