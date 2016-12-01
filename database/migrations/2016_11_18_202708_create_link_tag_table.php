@@ -17,8 +17,7 @@ class CreateLinkTagTable extends Migration
             $table->increments('id');
             $table->integer('link_id');
             $table->integer('tag_id');
-               $table->nullableTimestamps();
-            
+            $table->nullableTimestamps();            
 
             $table->foreign('link_id')
                   ->references('id')->on('links')

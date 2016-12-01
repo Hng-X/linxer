@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Models\Credential;
 use App\Models\Link;
+use App\Models\LinkTag;
 use GuzzleHttp\Client;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -60,7 +61,52 @@ class HandleSlackEvent implements ShouldQueue
                 $data['response_type'] = "saved";
 
                 $response = $this->respond($data);
-                Log::info("Received response:" . print_r($response, true));
+                Log::info("Received add response:" . print_r($response, true));
+            }
+        }
+        elseif ($parsedText['type'] == 'search') {
+            //check if the tag corresponds to any link for the particular team
+
+            $tag_term = $parsedText['query_terms'];
+
+            $team = $this->request['team_id'];
+            $check = Link::where('team_id',$team)
+                        ->where('title',$tag_term) //searching by title for now
+                        ->get();
+            
+            if($check) {
+                $num = count($check);
+                if($num > 0) {
+                    ($num == 1) ? $num_link = 'link' : $num_link = 'links';
+
+                    //$get_links = [];
+                    $teamName = "";
+                    $teamLinksUrl = env('APP_URL') . "/links/" . $this->request['team_id'] . "-" . $teamName;
+                    $output_text = [
+                                    "head" =>  "yo! i got `$num` $num_link on *$tag_term* \n\n",
+                                    "body" =>   "",
+                                    "team_url" => "\n\n See all your team's <links$teamLinksUrl|here>"
+                                ];
+                    $sn = 1;
+
+                    foreach ($check as $link) {
+                        $content = "$sn. <$link['url']|$link['title']> \n";
+                        array_push($output_text['body'], $content);
+                        $sn++;
+                    }
+                }
+                else {
+                    $output_text = "Oga, i no see *$tag_term* for here o!";
+                }
+
+                //respond                
+                $data['text'] = $output_text;
+                $data['channel'] = $this->request['event']['channel'];
+                $data['team_id'] = $this->request['team_id'];
+                $data['response_type'] = "saved";
+
+                $response = $this->respond($data);
+                Log::info("Received search response:" . print_r($response, true));            
             }
         }
     }
