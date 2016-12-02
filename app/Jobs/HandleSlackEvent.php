@@ -67,7 +67,8 @@ class HandleSlackEvent implements ShouldQueue
         elseif ($parsedText['type'] == 'search') {
             //check if the tag corresponds to any link for the particular team
             
-            $tag_term = $parsedText['query_terms'];
+            $tag_term0 = $parsedText['query_terms'];
+            $tag_term = implode(" ", $tag_term0);
 
             $team = $this->request['team_id'];
             $check = Link::where('team_id',$team)
