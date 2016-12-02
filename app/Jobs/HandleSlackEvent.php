@@ -115,8 +115,11 @@ $this->addTags($linkId, $parsedText['tags']);
         }        
         elseif ($parsedText['type'] == 'invalid') {
             //command not recognised
+            $word = $parsedText['query'];
+            $teamLinksUrl = "https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711&redirect_uri=http://linxer.herokuapp.com/Auth/signin";
 
-            $data['text'] = "Err i don't understand that command, pls speak php!";
+            $data['text'] = "Err i don't understand *$word* \n\n pls use *add* or *save* to save a link \n use *find* or *search* to search for a link\n or see all your team's links <$teamLinksUrl|here>";
+            
             $data['channel'] = $this->request['event']['channel'];
             $data['team_id'] = $this->request['team_id'];
             $data['response_type'] = "saved";
@@ -146,7 +149,10 @@ $this->addTags($linkId, $parsedText['tags']);
                     'query_terms' => array_slice($tokens, 2));
             }
             else {
-                return array('type' => 'invalid');
+                return array(                        
+                        'type' => 'invalid',
+                        'query' => $tokens[1]
+                        );
             }
         }
     }
