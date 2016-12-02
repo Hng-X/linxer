@@ -83,20 +83,20 @@ class HandleSlackEvent implements ShouldQueue
                     ($num == 1) ? $num_link = 'link' : $num_link = 'links';
 
                     //$get_links = [];
-                    $teamName = "";
-                    $teamLinksUrl = "https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711&redirect_uri=http://linxer.herokuapp.com/Auth/signin";
-                    $output_text = [
-                                    "head" =>  "yo! i got `$num` $num_link on *$tag_term* \n\n",
-                                    "body" =>   "",
-                                    "team_url" => "\n\n See all your team's links <$teamLinksUrl|here>"
-                                ];
                     $sn = 1;
 
+                    $links = "";
                     foreach ($check as $link) {
-                        $output_text["body"] = "$sn <$link->url|$link->title>\n";
+                        //$output_text["body"] = "$sn <$link->url|$link->title>\n";
+                        $links .= "$sn <$link->url|$link->title>\n";
                         //array_push($output_text['body'], $content);
                         $sn++;
                     }
+
+                    $teamName = "";
+                    $teamLinksUrl = "https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711&redirect_uri=http://linxer.herokuapp.com/Auth/signin";
+
+                    $output_text = "yo! i got `$num` $num_link on *$tag_term* \n\n $links \n\n See all your team's links <$teamLinksUrl|here>";               
                 }
                 else {
                    // $outputtext = "Oga, i no see *$tag_term* for here o!";
