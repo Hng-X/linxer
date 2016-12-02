@@ -44,14 +44,8 @@ class HandleSlackEvent implements ShouldQueue
             //add link to db
             $url = $this->sanitizeAndVerifyUrl($parsedText["link"]);
             if ($url) {
-                $attributes = array(
-                    "team_id" => $this->request['team_id'],
-                    "url" => $url,
-                    "user_id" => $this->request['event']['user'],
-                    "channel_id" => $this->request['event']['channel'],
-                    "title" => $this->getTitle($url)
-                );
-                $link = Link::create($attributes);
+                $link=$this->createLink($url);
+$this->addTags($link);
 
                 //respond
                 $teamLinksUrl = "https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711&redirect_uri=http://linxer.herokuapp.com/Auth/signin";
@@ -172,4 +166,20 @@ return $answer;
         return json_decode($response->getBody(), true);
     }
 
+public function createLink($url)
+{
+    $attributes = array(
+                    "team_id" => $this->request['team_id'],
+                    "url" => $url,
+                    "user_id" => $this->request['event']['user'],
+                    "channel_id" => $this->request['event']['channel'],
+                    "title" => $this->getTitle($url)
+                );
+                $link = Link::create($attributes);
+    return $link;
+}
+
+public function addTags(Link $link)
+{
+}
 }
