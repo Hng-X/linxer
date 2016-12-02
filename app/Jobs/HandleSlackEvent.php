@@ -66,13 +66,16 @@ class HandleSlackEvent implements ShouldQueue
         }
         elseif ($parsedText['type'] == 'search') {
             //check if the tag corresponds to any link for the particular team
-
-            $tag_term = $parsedText['query_terms'];
+            
+            $tag_term0 = $parsedText['query_terms'];
+            $tag_term = implode("", $tag_term0);
+        
 
             $team = $this->request['team_id'];
-            $check = Link::where('team_id',$team)
-                        ->where('title',$tag_term) //searching by title for now
+            $check = Link::where('title','=', $tag_term) 
                         ->get();
+                        //where('team_id',$team)
+                        //searching by title for now
             
             if($check) {
                 $num = count($check);
@@ -80,25 +83,26 @@ class HandleSlackEvent implements ShouldQueue
                     ($num == 1) ? $num_link = 'link' : $num_link = 'links';
 
                     //$get_links = [];
-                    $teamName = "";
-                    $teamLinksUrl = "https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711&redirect_uri=http://linxer.herokuapp.com/Auth/signin";
-                    $output_text = [
-                                    "head" =>  "yo! i got `$num` $num_link on *$tag_term* \n\n",
-                                    "body" =>   "",
-                                    "team_url" => "\n\n See all your team's links <$teamLinksUrl|here>"
-                                ];
                     $sn = 1;
 
+                    $links = "";
                     foreach ($check as $link) {
-                        $content = "$sn <$link->url|$link->title>\n";
-                        array_push($output_text['body'], $content);
+                        //$output_text["body"] = "$sn <$link->url|$link->title>\n";
+                        $links .= "$sn <$link->url|$link->title>\n";
+                        //array_push($output_text['body'], $content);
                         $sn++;
                     }
+
+                    $teamName = "";
+                    $teamLinksUrl = "https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711&redirect_uri=http://linxer.herokuapp.com/Auth/signin";
+
+                    $output_text = "yo! i got `$num` $num_link on *$tag_term* \n\n $links \n\n See all your team's links <$teamLinksUrl|here>";               
                 }
                 else {
-                    $output_text = "Oga, i no see *$tag_term* for here o!";
+                   // $outputtext = "Oga, i no see *$tag_term* for here o!";
+                    $output_text = "Oga, i no see am for here o!"; //*$tag_term*                                
                 }
-
+            
                 //respond                
                 $data['text'] = $output_text;
                 $data['channel'] = $this->request['event']['channel'];
