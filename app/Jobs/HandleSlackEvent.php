@@ -36,9 +36,10 @@ class HandleSlackEvent implements ShouldQueue
     public function handle()
     {
         //determine what kind of message this is: add, search, or not for us
-        if ($this->request['event']['type']=== "message") {
+        if ($this->request['event']['type'] == "message") {
         $rawText = $this->request['event']['text'];
         $parsedText = $this->getMessageTypeAndParseText($rawText);
+Log::info('PARSED TEXT: ".print_r($parsedText, true));
 
         $data = [];
         if ($parsedText['type'] == 'add') {
@@ -46,7 +47,7 @@ class HandleSlackEvent implements ShouldQueue
             $url = $this->sanitizeAndVerifyUrl($parsedText["link"]);
             if ($url) {
                 $link=$this->createLink($url);
-Log::info("TAGS: ".$parsedText['tags']);
+
 if($parsedText['tags']) {
 $this->addTags($link, $parsedText['tags']);
 }
