@@ -7,7 +7,7 @@ body {
 
 header {
   justify-content: center;
-  background-color: #e2e2e2;
+    background-color: #c72e45;
   padding: 40px 0; }
 
 .header-container {
@@ -21,6 +21,7 @@ header {
   .header-container .search-box input[type="search"] {
     padding: 10px 48px 10px 12px;
     background-color: gainsboro;
+      width: 50%;
     border: 1px solid rgba(204, 204, 204, 0.85); }
     .header-container .search-box input[type="search"]:active, .header-container .search-box input[type="search"]:focus {
       background-color: #ffffff;
