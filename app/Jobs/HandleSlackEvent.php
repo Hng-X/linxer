@@ -45,7 +45,9 @@ class HandleSlackEvent implements ShouldQueue
             $url = $this->sanitizeAndVerifyUrl($parsedText["link"]);
             if ($url) {
                 $link=$this->createLink($url);
-$this->addTags($link);
+if($parsedText['tags']) {
+$this->addTags($link, $parsedText['tags']);
+}
 
                 //respond
                 $teamLinksUrl = "https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711&redirect_uri=http://linxer.herokuapp.com/Auth/signin";
@@ -119,7 +121,7 @@ $this->addTags($link);
                 return array(
                     'type' => 'add',
                     'link' => trim($tokens[2], "<>"),
-                    'tags' => array_slice($tokens, 3));
+                    'tags' => implode(' ', array_slice($tokens, 3)));
             } else if ($tokens[1] == "find" || $tokens[1] == "search") {
                 return array(
                     'type' => 'search',
@@ -179,7 +181,11 @@ public function createLink($url)
     return $link;
 }
 
-public function addTags(Link $link)
+public function addTags(Link $link, $tagsString)
 {
+    $tags=explode(",", $tagsString);
+    foreach($tags as $tag) {
+        $link->tags()->create(["name" => $tag]);
+    }
 }
 }
