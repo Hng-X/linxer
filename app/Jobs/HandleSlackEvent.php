@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Models\Credential;
 use App\Models\Link;
+use App\Models\Tag;
 use GuzzleHttp\Client;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
