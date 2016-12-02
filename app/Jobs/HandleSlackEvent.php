@@ -113,7 +113,7 @@ $this->addTags($linkId, $parsedText['tags']);
                 Log::info("Received search response:" . print_r($response, true));            
             }
         }        
-        else {/*
+        elseif ($parsedText['type'] == 'invalid') {
             //command not recognised
 
             $data['text'] = "Err i don't understand that command, pls speak php!";
@@ -123,7 +123,7 @@ $this->addTags($linkId, $parsedText['tags']);
 
             $response = $this->respond($data);
             Log::info("Received invalid command response:" . print_r($response, true)); 
-            */
+            
         }
     }
     }
@@ -139,10 +139,14 @@ $this->addTags($linkId, $parsedText['tags']);
                     'type' => 'add',
                     'link' => trim($tokens[2], "<>"),
                     'tags' => implode(' ', array_slice($tokens, 3)));
-            } else if ($tokens[1] == "find" || $tokens[1] == "search") {
+            } 
+            else if ($tokens[1] == "find" || $tokens[1] == "search") {
                 return array(
                     'type' => 'search',
                     'query_terms' => array_slice($tokens, 2));
+            }
+            else {
+                return array('type' => 'invalid');
             }
         }
     }
