@@ -149,7 +149,7 @@ class HandleSlackEvent implements ShouldQueue
             preg_match("/\<title\>(.*)\<\/title\>/i", $str, $title); // ignore case
             $answer= $title[1];
         }
-       } catch (ErrorException $e) {
+       } catch (Exception $e) {
         $answer= parse_url($url)["host"];
         }
 return $answer;
