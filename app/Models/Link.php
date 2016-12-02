@@ -7,11 +7,10 @@ class Link extends BaseModel {
 
 	protected $table = 'links';
 
-/*
     public function tags()
     {
           return $this->belongsToMany(Tag::class);
     }
-   */
+
 
 }
