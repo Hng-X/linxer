@@ -112,6 +112,17 @@ class HandleSlackEvent implements ShouldQueue
                 $response = $this->respond($data);
                 Log::info("Received search response:" . print_r($response, true));            
             }
+        }        
+        else {
+            //command not recognised
+
+            $data['text'] = "Err i don't understand that command, pls speak php!";
+            $data['channel'] = $this->request['event']['channel'];
+            $data['team_id'] = $this->request['team_id'];
+            $data['response_type'] = "saved";
+
+            $response = $this->respond($data);
+            Log::info("Received invalid command response:" . print_r($response, true)); 
         }
     }
 
