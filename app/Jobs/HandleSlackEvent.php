@@ -113,7 +113,7 @@ $this->addTags($linkId, $parsedText['tags']);
                 Log::info("Received search response:" . print_r($response, true));            
             }
         }        
-        else {
+        else {/*
             //command not recognised
 
             $data['text'] = "Err i don't understand that command, pls speak php!";
@@ -123,6 +123,7 @@ $this->addTags($linkId, $parsedText['tags']);
 
             $response = $this->respond($data);
             Log::info("Received invalid command response:" . print_r($response, true)); 
+            */
         }
     }
     }
