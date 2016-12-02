@@ -112,6 +112,21 @@ $this->addTags($linkId, $parsedText['tags']);
                 $response = $this->respond($data);
                 Log::info("Received search response:" . print_r($response, true));            
             }
+        }        
+        elseif ($parsedText['type'] == 'invalid') {
+            //command not recognised
+            $word = $parsedText['query'];
+            $teamLinksUrl = "https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711&redirect_uri=http://linxer.herokuapp.com/Auth/signin";
+
+            $data['text'] = "Err i don't understand *$word* \n\n pls use *add* or *save* to save a link \n use *find* or *search* to search for a link\n or see all your team's links <$teamLinksUrl|here>";
+            
+            $data['channel'] = $this->request['event']['channel'];
+            $data['team_id'] = $this->request['team_id'];
+            $data['response_type'] = "saved";
+
+            $response = $this->respond($data);
+            Log::info("Received invalid command response:" . print_r($response, true)); 
+            
         }
     }
     }
@@ -127,10 +142,17 @@ $this->addTags($linkId, $parsedText['tags']);
                     'type' => 'add',
                     'link' => trim($tokens[2], "<>"),
                     'tags' => implode(' ', array_slice($tokens, 3)));
-            } else if ($tokens[1] == "find" || $tokens[1] == "search") {
+            } 
+            else if ($tokens[1] == "find" || $tokens[1] == "search") {
                 return array(
                     'type' => 'search',
                     'query_terms' => array_slice($tokens, 2));
+            }
+            else {
+                return array(                        
+                        'type' => 'invalid',
+                        'query' => $tokens[1]
+                        );
             }
         }
     }
