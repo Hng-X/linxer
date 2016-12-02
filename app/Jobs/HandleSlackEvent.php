@@ -39,7 +39,8 @@ class HandleSlackEvent implements ShouldQueue
         if ($this->request['event']['type'] == "message") {
         $rawText = $this->request['event']['text'];
         $parsedText = $this->getMessageTypeAndParseText($rawText);
-Log::info('PARSED TEXT: '.print_r($parsedText, true));
+Log::info("RAW TEXT: ".$rawText);
+Log::info("PARSED TEXT: ".print_r($parsedText, true));
 
         $data = [];
         if ($parsedText['type'] == 'add') {
