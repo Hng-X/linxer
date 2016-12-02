@@ -72,9 +72,10 @@ class HandleSlackEvent implements ShouldQueue
         
 
             $team = $this->request['team_id'];
-            $check = Link:://where('team_id',$team)
-                        where('title','LIKE', $tag_term) //searching by title for now
+            $check = Link::where('title','=', $tag_term) 
                         ->get();
+                        //where('team_id',$team)
+                        //searching by title for now
             
             if($check) {
                 $num = count($check);

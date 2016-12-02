@@ -7,13 +7,15 @@ class Link extends BaseModel {
 
 	protected $status_code;
 
-protected $guarded=[];
+	protected $guarded=[];
 
 	protected $table = 'links';
 
+/*
     public function tags()
     {
           return $this->belongsToMany(Tag::class);
     }
+   */
 
 }
