@@ -47,10 +47,10 @@ Log::info("PARSED TEXT: ".print_r($parsedText, true));
             //add link to db
             $url = $this->sanitizeAndVerifyUrl($parsedText["link"]);
             if ($url) {
-                $link=$this->createLink($url);
+                $linkId=$this->createLink($url);
 
 if($parsedText['tags']) {
-$this->addTags($link, $parsedText['tags']);
+$this->addTags($linkId, $parsedText['tags']);
 }
 
                 //respond
@@ -182,12 +182,13 @@ public function createLink($url)
                     "channel_id" => $this->request['event']['channel'],
                     "title" => $this->getTitle($url)
                 );
-                $link = Link::create($attributes);
-    return $link;
+                $link = Link::firstOrCreate($attributes);
+    return $link->id;
 }
 
-public function addTags(Link $link, $tagsString)
+public function addTags($linkId, $tagsString)
 {
+    $link=Link::find($linkId);
     $tags=explode(",", $tagsString);
     foreach($tags as $tag) {
         $link->tags()->create(["name" => $tag]);
