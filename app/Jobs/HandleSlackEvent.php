@@ -89,9 +89,9 @@ class HandleSlackEvent implements ShouldQueue
                             $sn++;
                         }
 
-                        $output_text = "Yo! I found `$num` $num_link on *$tag_term* \n\n $links \n\n See all your team's links <$teamLinksUrl|here>";
+                        $output_text = "Yo! I found `$num` $num_link on *$tag_term* \n$links \nCheck out all your team's links <$teamLinksUrl|here>.";
                     } else {
-                        $output_text = "Oga, i no see am for here o!"; //*$tag_term*
+                        $output_text = "Sorry, I couldn't find any links matching *$tag_term*. Try refining your keywords, or check out all your team's links <$teamLinksUrl|here>.";
                     }
 
                     $data['text'] = $output_text;
@@ -100,7 +100,7 @@ class HandleSlackEvent implements ShouldQueue
                 //command not recognised
                 $word = $parsedText['query'];
 
-                $data['text'] = "Sorry, I didn't understand $word. \n\n Try using *add* or *save* to save a link, or use *find* or *search* to search for a link.\n You can also see all your team's links <$teamLinksUrl|here>";
+                $data['text'] = "Sorry, I didn't understand *$word.* I'm not that smart yet. :disappointed: \nTry using *add* to save a link, or *find* to search for a link.\nYou can also see all your team's links <$teamLinksUrl|here>.";
             }
             $response = $this->respond($data);
             Log::info("Received response:" . print_r($response, true));
