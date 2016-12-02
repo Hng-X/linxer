@@ -69,6 +69,7 @@ class HandleSlackEvent implements ShouldQueue
             
             $tag_term0 = $parsedText['query_terms'];
             $tag_term = implode("", $tag_term0);
+        /*
 
             $team = $this->request['team_id'];
             $check = Link::where('team_id',$team)
@@ -100,16 +101,16 @@ class HandleSlackEvent implements ShouldQueue
                    // $outputtext = "Oga, i no see *$tag_term* for here o!";
                     $output_text = "Oga, i no see am for here o!"; //*$tag_term*                                
                 }
-                
+            */
                 //respond                
-                $data['text'] = $output_text;
+                $data['text'] = $tag_term0. " - ". $tag_term;
                 $data['channel'] = $this->request['event']['channel'];
                 $data['team_id'] = $this->request['team_id'];
                 $data['response_type'] = "saved";
 
                 $response = $this->respond($data);
                 Log::info("Received search response:" . print_r($response, true));            
-            }
+            //}
         }
     }
 
