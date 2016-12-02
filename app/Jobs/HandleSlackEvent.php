@@ -101,7 +101,7 @@ class HandleSlackEvent implements ShouldQueue
                     $output_text = [
                                     "head" =>  "",
                                     "body" =>   "Oga, i no see am for here o!", //*$tag_term*
-                                    "team_url" => "\n\n See all your team's links <$teamLinksUrl|here>"
+                                    "team_url" => ""
                                 ];
                 }
                 
