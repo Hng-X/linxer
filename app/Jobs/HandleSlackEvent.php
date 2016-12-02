@@ -115,7 +115,8 @@ class HandleSlackEvent implements ShouldQueue
     public function getMessageTypeAndParseText($text)
     {
         $tokens = explode(' ', $text);
-        if ($tokens[0] == "@linxer") {
+        $botUserId=Credential::where('team_id', $this->request['team_id'])->get()->first()->bot_user_id;
+        if ($tokens[0] == "<@$botUserId>") {
             if ($tokens[1] == "add" || $tokens[1] == "save") {
                 return array(
                     'type' => 'add',
