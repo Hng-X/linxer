@@ -4,7 +4,6 @@ namespace App\Jobs;
 
 use App\Models\Credential;
 use App\Models\Link;
-use App\Models\LinkTag;
 use GuzzleHttp\Client;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -190,8 +189,11 @@ public function addTags($linkId, $tagsString)
 {
     $link=Link::find($linkId);
     $tags=explode(",", $tagsString);
+    $tagIds=[];
     foreach($tags as $tag) {
-        $link->tags()->create(["name" => $tag]);
+        $tag=Tag::firstOrCreate(["name" => $tag]);
+        $tagIds[]=$tag->id;
     }
+    $link->tags()->attach($tagIds);
 }
 }
