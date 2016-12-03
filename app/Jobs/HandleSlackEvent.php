@@ -69,7 +69,7 @@ class HandleSlackEvent implements ShouldQueue
 
 
                 $team = $this->request['team_id'];
-                $check = Link::where('team_id', $team)->where('title', "LIKE", "%$tag_term%")
+                $check = Link::where('team_id', $team)->where('title', "ILIKE", "%$tag_term%")
                     ->get();
                 //searching by title for now
 
