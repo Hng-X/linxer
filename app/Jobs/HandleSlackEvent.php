@@ -61,7 +61,7 @@ class HandleSlackEvent implements ShouldQueue
                     $responses=array(
  "Done! :+1: See all your team's <$teamLinksUrl|here>.",
  "Added! <$teamLinksUrl|Here> are all your team's links. :sunglasses:",
-"One more link successfully preserved for this team. Linxer's got ya back. :muscle:",
+"Link saved! Rest easy, Linxer's got ya back. :muscle:",
 "Mission Accomplished, boss!"
 );
                     $data['text'] = $responses[array_rand($responses)];
@@ -99,7 +99,7 @@ $data['text'] =  $responses[array_rand($responses)];
                             $sn++;
                         }
 $responses=array(
-"All done, captain! There's `$num` $num_link on *$tag_term* \n$links \n <$teamLinksUrl|Here's> all the team's links, too.",
+"All done, captain! There's `$num` $num_link on *$tag_term* \n$links \n<$teamLinksUrl|Here's> all the team's links, too.",
                          "Here you go! I found `$num` $num_link on *$tag_term* \n$links \nCheck out all your team's links <$teamLinksUrl|here>.");
 $output_text =$responses[array_rand($responses)];
                     } else {
