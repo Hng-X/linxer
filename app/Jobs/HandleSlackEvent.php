@@ -118,7 +118,7 @@ class HandleSlackEvent implements ShouldQueue
             if ($tokens[1] == "add" || $tokens[1] == "save") {
                 return array(
                     'type' => 'add',
-                    'link' => trim($tokens[2], "<>"),
+                    'link' => strtok(trim($tokens[2], "<>"), '|'),
                     'tags' => implode(' ', array_slice($tokens, 3)));
             } else if ($tokens[1] == "find" || $tokens[1] == "search") {
                 return array(
