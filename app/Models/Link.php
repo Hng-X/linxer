@@ -3,11 +3,7 @@ namespace App\Models;
 
 class Link extends BaseModel {
 
-	protected $valid;
-
-	protected $status_code;
-
-protected $guarded=[];
+	protected $guarded=[];
 
 	protected $table = 'links';
 
@@ -15,5 +11,6 @@ protected $guarded=[];
     {
           return $this->belongsToMany(Tag::class);
     }
+
 
 }

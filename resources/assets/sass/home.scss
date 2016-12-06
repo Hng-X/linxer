@@ -8,7 +8,7 @@ header{
 .header__wrapper{ justify-content: space-between; width: 90%; }
 .logo{ 
 	padding: 15px 0;
-	background:url("{{ env('APP_URL') }}/assets/linxer.png") no-repeat;
+  background: url("https://linxer.herokuapp.com/assets/linxer.png") no-repeat;
 	background-size:contain;
 }
 .logo__text{margin: 0;}
