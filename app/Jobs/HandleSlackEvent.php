@@ -59,7 +59,9 @@ class HandleSlackEvent implements ShouldQueue
                         $this->addTags($linkId, $parsedText['tags']);
                     }
 
-                    $data['text'] = "Done! :+1: See all your team's links <$teamLinksUrl|here>. ";
+                    $data['text'] = "Done! :+1: See all your team's <$teamLinksUrl|here>. ";
+                 } else {
+                  $data['text'] = "Sorry, that doesn't look like a valid link. Maybe you missed the \"http(s)\"?";
                 }
             } elseif ($parsedText['type'] == 'search') {
                 //check if the tag corresponds to any link for the particular team
@@ -70,7 +72,7 @@ class HandleSlackEvent implements ShouldQueue
 
                 $team = $this->request['team_id'];
                 $check = Link::where('team_id', $team)->where('title', "ILIKE", "%$tag_term%")
-                    ->get();
+                    ->get(); //"ILIKE" is not a typo. it's needed for case-insensitive pattern matching in Postgres.
                 //searching by title for now
 
                 if ($check) {
