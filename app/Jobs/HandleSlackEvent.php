@@ -58,10 +58,18 @@ class HandleSlackEvent implements ShouldQueue
                     if ($parsedText['tags']) {
                         $this->addTags($linkId, $parsedText['tags']);
                     }
-
-                    $data['text'] = "Done! :+1: See all your team's <$teamLinksUrl|here>. ";
+                    $responses=array(
+ "Done! :+1: See all your team's <$teamLinksUrl|here>.",
+ "Added! <$teamLinksUrl|Here> are all your team's links. :sunglasses:",
+"One more link successfully preserved for this team. Linxer's got ya back. :muscle:",
+"Mission Accomplished, boss!"
+);
+                    $data['text'] = $responses[array_rand($responses)];
                  } else {
-                  $data['text'] = "Sorry, that doesn't look like a valid link. Maybe you missed the \"http(s)\"?";
+                   $responses=array(
+"I'm sorry, boss. I couldn't save that. Not a valid link. Why not check it again?",
+                  "Oops, that doesn't look like a valid link. Maybe you mistyped something?");
+$data['text'] =  $responses[array_rand($responses)];
                 }
             } elseif ($parsedText['type'] == 'search') {
                 //check if the tag corresponds to any link for the particular team
@@ -90,10 +98,12 @@ class HandleSlackEvent implements ShouldQueue
                             //array_push($output_text['body'], $content);
                             $sn++;
                         }
-
-                        $output_text = "Yo! I found `$num` $num_link on *$tag_term* \n$links \nCheck out all your team's links <$teamLinksUrl|here>.";
+$responses=array(
+"All done, captain! There's `$num` $num_link on *$tag_term* \n$links \n <$teamLinksUrl|Here's> all the team's links, too.",
+                         "Here you go! I found `$num` $num_link on *$tag_term* \n$links \nCheck out all your team's links <$teamLinksUrl|here>.");
+$output_text =$responses[array_rand($responses)];
                     } else {
-                        $output_text = "Sorry, I couldn't find any links matching *$tag_term*. Try refining your keywords, or check out all your team's links <$teamLinksUrl|here>.";
+                        $output_text = "I did my best but, I couldn't find any links matching *$tag_term*. :cry: Try refining your keywords, or maybe <$teamLinksUrl|take a look at your team's links>.";
                     }
 
                     $data['text'] = $output_text;
