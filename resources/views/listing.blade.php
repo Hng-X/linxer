@@ -16,17 +16,17 @@
 
 <div class = "w3-container">
   <!--Header Section -->
-  <header>
-    <div class="header__wrapper">
-      <div class="logo">
-        <h1 class="logo__text">	<a href="/">Team <span>{{ $teamName }}</span></a></h1>
-      </div>
+    <header>
+      <div class="container header-container">
+        <div class="team-name">
+          <a href="/">Team <span>{{ $teamName }}</span></a>
+        </div>
         <div class="search-box">
           <span><i class="glyphicon glyphicon-search" aria-hidden="true"></i></span>
           <input type="search" placeholder="Enter a keyword">
         </div>
-    </div>
-  </header>
+      </div>
+    </header>
 
   <!-- Card section -->
     <div class = "w3-row-padding">
@@ -89,7 +89,7 @@
       </div>
     </div>
 
-    <footer class= "w3-container w3-teal">
+    <footer class= "w3-container">
       <div class="w3-container">
         <ul class="w3-pagination">
           <li><a href="#">&laquo;</a></li>
