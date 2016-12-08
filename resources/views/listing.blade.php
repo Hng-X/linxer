@@ -1,164 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ $teamName }}'s Links | Linxer</title>
+  <title>{{ $teamName }}'s Links | Linxer</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="{{ env('APP_URL') }}/css/listing.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://use.fontawesome.com/c8c67c47f4.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://use.fontawesome.com/c8c67c47f4.js"></script>
+  	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
+
 <body>
-<div class="links-container">
-	<div class="">
-		<header>
-			<div class="container header-container">
-				<div class="team-name">
-			<!--		<a href="/">Team <span>{{ $teamName }}</span></a>-->
-					<a href="/">Team <span>{{ $teamName }}</span></a>
-				</div>
-				<div class="search-box">
-					<span><i class="fa fa-search" aria-hidden="true"></i></span>
-                    <input type="search" placeholder="Enter a keyword">
-				</div>
-			</div>
-		</header>
-        <!--
-        <section>
-            <div class="container welcome-note">
-                <article class="well">
-                    <h4>Oh Hey!</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                    </p>
-                </article>
-            </div>
-        </section>
-        -->
-		<section class="links">
-            @foreach($links->chunk(4) as $chunk)
-			<div class="container links-row">
-                @foreach($chunk as $link)
-				<div class="links-row__item">
-					<div class="item-source">
-					<!--	<p><span>{{ $teamName }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>-->
-					</div>
-					<div class="item-details">
-						<div class="item-title">
-							<div class="item-highlight__attached" >
-								<span>Lindaikeji.com</span>
-							</div>
-							<a href={{ $links }}>Shalvah has no state of origin</a>
-						</div>
-						<div class="item-highlight">
-							<div class="item-highlight__details">
-								<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</span>
-							</div>
-							<div class="item-highlight__image">
-							</div>
-						</div>
-					</div>
-					<div class="item-info">
-						<div class="item-info__name">
-							<p>Author:<span>Shalvah</span></p>
-						</div>
-						<div class="item-info__date">
-							<p>11/06/2016</p>
-						</div>
-					</div>
-				</div>
-				<div class="links-row__item">
-					<div class="item-source">
-						<!--<p><span>{{ teamName }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p>-->
-					</div>
-					<div class="item-details">
-						<div class="item-title">
-							<div class="item-highlight__attached" >
-								<span>Lindaikeji.com</span>
-							</div>
-							<a href= {{ $links }}>Shalvah has no state of origin</a>
-						</div>
-						<div class="item-highlight">
-							<div class="item-highlight__details">
-								<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</span>
-							</div>
-							<div class="item-highlight__image">
-							</div>
-						</div>
-					</div>
-					<div class="item-info">
-						<div class="item-info__name">
-							<p>Author:<span>Shalvah</span></p>
-						</div>
-						<div class="item-info__date">
-							<p>11/06/2016</p>
-						</div>
-					</div>
-				</div>
-				<div class="links-row__item">
-					<div class="item-source">
-					<!--	<p><span>{{ teamName }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p> -->
-					</div>
-					<div class="item-details">
-						<div class="item-title">
-							<div class="item-highlight__attached" >
-								<span>Lindaikeji.com</span>
-							</div>
-							<a href="https://should-be-dynamically-generated">Shalvah has no state of origin</a>
-						</div>
-						<div class="item-highlight">
-							<div class="item-highlight__details">
-								<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.</span>
-							</div>
-							<div class="item-highlight__image">
-							</div>
-						</div>
-					</div>
-					<div class="item-info">
-						<div class="item-info__name">
-							<p>Author:<span>Shalvah</span></p>
-						</div>
-						<div class="item-info__date">
-							<p>11/06/2016</p>
-						</div>
-					</div>
-				</div>
-				<div class="links-row__item">
-					<div class="item-source">
-					<!--	<p><span>{{ teamName }}</span><i class="fa fa-caret-right" aria-hidden="true"></i><span>General</span></p> -->
-                        <p><i class="fa fa-caret-right" aria-hidden="true"></i><span>#{{ $link->channel_id }}</span></p>
-					</div>
-					<div class="item-details">
-						<div class="item-title">
-							<div class="item-highlight__attached" >
-                                <span>{{ $link->url }}</span>
-							</div>
-                            <span>{{ $link->title }}</span>
-						</div>
-						<div class="item-highlight">
-							<div class="item-highlight__details">
-                                <span></span>
-							</div>
-							<div class="item-highlight__image">
-							</div>
-						</div>
-					</div>
-					<div class="item-info">
-						<div class="item-info__name">
-                            <p>Added by <span>{{ $link->user_id }}</span></p>
-						</div>
-						<div class="item-info__date">
-                            <p>{{ $link->created_at }}</p>
-						</div>
-					</div>
-				</div>
-                @endforeach
-                @endforeach
-			</div>
-		</section>
-	</div>
-	</div>
+
+<div class = "w3-container">
+  <!--Header Section -->
+  <header>
+    <div class="header__wrapper">
+      <div class="logo">
+        <h1 class="logo__text">	<a href="/">Team <span>{{ $teamName }}</span></a></h1>
+      </div>
+        <div class="search-box">
+          <span><i class="glyphicon glyphicon-search" aria-hidden="true"></i></span>
+          <input type="search" placeholder="Enter a keyword">
+        </div>
+    </div>
+  </header>
+
+  <!-- Card section -->
+    <div class = "w3-row-padding">
+      <div class = "w3-col m3 w3-panel w3-card-4">
+         <header class = "w3-container w3-red">
+            <p>Header container for card </p>
+         </header>
+
+         <div class = "w3-container">
+           <p> Containers basic information of the links added by the user</p>
+         </div>
+
+         <footer class = "w3-container w3-red">
+           <p> Containers footer's information better</p>
+         </footer>
+
+       </div>
+
+      <div class = "w3-col m3 w3-panel w3-card-4">
+        <header class = "w3-container w3-red">
+           <p>Header container for card </p>
+        </header>
+
+        <div class = "w3-container">
+          <p> Containers basic information of the links added by the user</p>
+        </div>
+
+        <footer class = "w3-container w3-red">
+          <p> Containers footer's information better</p>
+        </footer>
+      </div>
+
+      <div class = "w3-col m3 w3-panel w3-card-4">
+        <header class = "w3-container w3-red">
+           <p>Header container for card </p>
+        </header>
+
+        <div class = "w3-container">
+          <p> Containers basic information of the links added by the user</p>
+        </div>
+
+        <footer class = "w3-container w3-red">
+          <p> Containers footer's information better</p>
+        </footer>
+      </div>
+
+      <div class = "w3-col m3 w3-panel w3-card-4">
+        <header class = "w3-container w3-red">
+           <p>Header container for card </p>
+        </header>
+
+        <div class = "w3-container">
+          <p> Containers basic information of the links added by the user</p>
+        </div>
+
+        <footer class = "w3-container w3-red">
+          <p> Containers footer's information better</p>
+        </footer>
+
+      </div>
+    </div>
+
+    <footer class= "w3-container w3-teal">
+      <div class="w3-container">
+        <ul class="w3-pagination">
+          <li><a href="#">&laquo;</a></li>
+          <li><a class="w3-green" href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">&raquo;</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
 </body>
 
 </html>
