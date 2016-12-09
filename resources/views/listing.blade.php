@@ -23,7 +23,7 @@
         </div>
         <div class="search-box">
           <span><i class="glyphicon glyphicon-search" aria-hidden="true"></i></span>
-          <input type="search" placeholder="Enter a keyword">
+          <input type="search" placeholder="Enter a tag">
         </div>
       </div>
     </header>
@@ -31,7 +31,7 @@
   <!-- Card section -->
     <div class = "w3-row-padding">
       <div class = "w3-col m3 w3-panel w3-card-4">
-         <header class = "w3-container w3-red">
+         <header class = "w3-container">
             <p>Header container for card </p>
          </header>
 
@@ -39,14 +39,14 @@
            <p> Containers basic information of the links added by the user</p>
          </div>
 
-         <footer class = "w3-container w3-red">
+         <footer class = "w3-container">
            <p> Containers footer's information better</p>
          </footer>
 
        </div>
 
       <div class = "w3-col m3 w3-panel w3-card-4">
-        <header class = "w3-container w3-red">
+        <header class = "w3-container">
            <p>Header container for card </p>
         </header>
 
@@ -54,13 +54,13 @@
           <p> Containers basic information of the links added by the user</p>
         </div>
 
-        <footer class = "w3-container w3-red">
+        <footer class = "w3-container">
           <p> Containers footer's information better</p>
         </footer>
       </div>
 
       <div class = "w3-col m3 w3-panel w3-card-4">
-        <header class = "w3-container w3-red">
+        <header class = "w3-container">
            <p>Header container for card </p>
         </header>
 
@@ -68,13 +68,13 @@
           <p> Containers basic information of the links added by the user</p>
         </div>
 
-        <footer class = "w3-container w3-red">
+        <footer class = "w3-container">
           <p> Containers footer's information better</p>
         </footer>
       </div>
 
       <div class = "w3-col m3 w3-panel w3-card-4">
-        <header class = "w3-container w3-red">
+        <header class = "w3-container">
            <p>Header container for card </p>
         </header>
 
@@ -82,15 +82,15 @@
           <p> Containers basic information of the links added by the user</p>
         </div>
 
-        <footer class = "w3-container w3-red">
+        <footer class = "w3-container">
           <p> Containers footer's information better</p>
         </footer>
 
       </div>
     </div>
 
-    <footer class= "w3-container">
-      <div class="w3-container">
+    <footer>
+      <div>
         <ul class="w3-pagination">
           <li><a href="#">&laquo;</a></li>
           <li><a class="w3-green" href="#">1</a></li>
