@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="/css/listing.css" rel="stylesheet" type="text/css" /> 
+	<link href="/css/listing.css" rel="stylesheet" type="text/css" />
   <link href="/css/home.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -47,37 +47,21 @@
       </div>
 
       <!-- Card Section -->
+  @foreach($links->chunk(4) as $chunk)
+      @foreach($chunk as $link)
       <div class = "flip3D">
-        <div class = "back">
-            Links will go here
-        </div>
         <div class = "front">
-          Links will also go here
+              <span>{{ $link->url }}</span>
+              <span>{{ $link->title }}</span>
+        </div>
+        <div class = "back">
+              <p>Added by <span>{{ $link->user_id }}</span></p>
+              <p>{{ $link->created_at }}</p>
         </div>
       </div>
+      @endforeach
+  @endforeach
 
-      <div class = "flip3D">
-        <div class = "back">
-            Links will also go here
-        </div>
-        <div class = "front">
-          Links will also go here
-        </div>
-      </div>
-
-      <div class = "flip3D">
-        <div class = "back">
-          Links will also go here
-        </div>
-        <div class = "front">
-          Links will also go here
-        </div>
-      </div>
-
-      <!--Footer Section -->
-      <footer>
-        <p>made with ❤️ by <a href="">hngX</a></p>
-      </footer>
 
     </div>
 </body>

@@ -11,10 +11,6 @@ header
     justify-content: center;
   }
 
-  footer {
-    border-top: 1px solid #5e5e5f;
-    justify-content: center;
-  }
 
   .header__wrapper{ justify-content: space-between; width: 90%; }
   .logo{
@@ -79,6 +75,8 @@ header
 	    transform: perspective( 600px ) rotateY( 0deg );
   }
 
+  /*
+
 .links-row {
   justify-content: space-around;
   padding: 30px; }
@@ -114,5 +112,5 @@ header
         font-family: monospace; }
         .links-row .links-row__item .item-info .item-info__name p span {
           font-weight: 700; }
-
+*/
 /*# sourceMappingURL=listing.css.map */
