@@ -6,103 +6,43 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="{{ env('APP_URL') }}/css/listing.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://use.fontawesome.com/c8c67c47f4.js"></script>
-  	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <link href="/css/home.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 
 <body>
-
-<div class = "w3-container">
-  <!--Header Section -->
-    <header>
-      <div class="container header-container">
-        <div class="team-name">
-          <a href="/">Team <span>{{ $teamName }}</span></a>
+    <div class = "container">
+      <!--Header Section -->
+      <header>
+        <div class="header__wrapper">
+          <div class="logo">
+            <h1 class="logo__text">Linxer</h1>
+          </div>
+          <div class="signin">
+                      <p>Your team's already using Linxer?</p>
+            <a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.team&client_id=104593454705.107498116711&redirect_uri=http://linxer.herokuapp.com/Auth/signin">
+              <button class="signin-btn"><span>Log Out From Slack</span></button>
+            </a>
+          </div>
         </div>
-        <div class="search-box">
-          <span><i class="glyphicon glyphicon-search" aria-hidden="true"></i></span>
-          <input type="search" placeholder="Enter a tag">
-        </div>
-      </div>
-    </header>
+      </header>
 
-  <!-- Card section -->
-    <div class = "w3-row-padding">
-      <div class = "w3-col m3 w3-panel w3-card-4 w3-white" >
-         <header class = "w3-container">
-            <p>Header container for card </p>
-         </header>
+      <!--Long Search Tab -->
+      <div>
 
-         <div class = "w3-container">
-           <p> Containers basic information of the links added by the user</p>
-         </div>
-
-         <footer class = "w3-container">
-           <p> Containers footer's information better</p>
-         </footer>
-
-       </div>
-
-      <div class = "w3-col m3 w3-panel w3-card-4 w3-white">
-        <header class = "w3-container">
-           <p>Header container for card </p>
-        </header>
-
-        <div class = "w3-container">
-          <p> Containers basic information of the links added by the user</p>
-        </div>
-
-        <footer class = "w3-container">
-          <p> Containers footer's information better</p>
-        </footer>
       </div>
 
-      <div class = "w3-col m3 w3-panel w3-card-4 w3-white">
-        <header class = "w3-container">
-           <p>Header container for card </p>
-        </header>
+      <!-- Card Section -->
+      <div>
 
-        <div class = "w3-container">
-          <p> Containers basic information of the links added by the user</p>
-        </div>
-
-        <footer class = "w3-container">
-          <p> Containers footer's information better</p>
-        </footer>
       </div>
 
-      <div class = "w3-col m3 w3-panel w3-card-4 w3-white">
-        <header class = "w3-container">
-           <p>Header container for card </p>
-        </header>
-
-        <div class = "w3-container">
-          <p> Containers basic information of the links added by the user</p>
-        </div>
-
-        <footer class = "w3-container">
-          <p> Containers footer's information better</p>
-        </footer>
-
+      <!--Footer Section -->
+      <div>
+        
       </div>
     </div>
-
-    <footer>
-      <div>
-        <ul class="w3-pagination">
-          <li><a href="#">&laquo;</a></li>
-          <li><a class="" href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#">&raquo;</a></li>
-        </ul>
-      </div>
-    </footer>
-  </div>
 </body>
 
 </html>
