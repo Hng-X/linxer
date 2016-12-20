@@ -47,20 +47,18 @@
       </div>
 
       <!-- Card Section -->
-  @foreach($links->chunk(4) as $chunk)
-      @foreach($chunk as $link)
+
       <div class = "flip3D">
         <div class = "front">
-              <span>{{ $link->url }}</span>
-              <span>{{ $link->title }}</span>
+              <span></span>
+              <span></span>
         </div>
         <div class = "back">
-              <p>Added by <span>{{ $link->user_id }}</span></p>
-              <p>{{ $link->created_at }}</p>
+              <p>Added by <span></span></p>
+              <p>{</p>
         </div>
       </div>
-      @endforeach
-  @endforeach
+
 
 
     </div>
