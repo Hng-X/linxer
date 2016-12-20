@@ -1,10 +1,11 @@
-body {
+@import 'base';
+
+
+/*body {
 	background-image: linear-gradient(to top right, #307ea2, #31708f,#00c7ff) !important;
 	min-height: 655px;
 }
-.header-container, .links-row, item-info {
-	display: flex;
-}
+*/
 
 .flip3D
 {
@@ -51,20 +52,29 @@ transform: perspective( 600px ) rotateY( -180deg );
 }
 
 header {
+	background-color: #c72e45;
 	justify-content: center;
-	background-color: #e2e2e2;
-  padding: 30px 0;
-}
-.header-container{
-	justify-content: space-between;
-    align-items: center;
 
-	.team-name {
-		font-size: 35px;
-    	color: blueviolet;
-		width: 70%;
-		line-height: 40px;
-	}
+}
+
+.header__wrapper{ justify-content: space-between; width: 90%; }
+.logo{
+	padding: 15px 0;
+  background: url("https://linxer.herokuapp.com/assets/linxer.png") no-repeat;
+	background-size:contain;
+}
+.logo__text{margin: 0;}
+.signin a{ padding:15px 0; margin-left: 10px;}
+.signin a,.signin p{ display: inline-block; }
+
+.signin-btn{
+	border-radius: 10px;
+	border: 1px solid;
+	padding: 11px 25px;
+	background-color: transparent;
+	cursor: pointer;
+}
+
 	.search-box {
 		input[type="search"] {
 			padding: 10px 48px 10px 12px;
