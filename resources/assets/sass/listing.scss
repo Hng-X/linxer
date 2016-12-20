@@ -19,7 +19,7 @@ body {
 		position:absolute;
 	 -webkit-transform: perspective( 600px ) rotateY( 0deg );
 		transform: perspective( 600px ) rotateY( 0deg );
-		background:#FC0; width:240px; height:200px; border-radius: 7px;
+		background:#FF0000; width:240px; height:200px; border-radius: 7px;
 		-webkit-backface-visibility: hidden;
 		backface-visibility: hidden;
 		transition: -webkit-transform .5s linear 0s;
@@ -31,7 +31,7 @@ body {
  position:absolute;
  -webkit-transform: perspective( 600px ) rotateY( 180deg );
  transform: perspective( 600px ) rotateY( 180deg );
- background: #80BFFF; width:240px; height:200px; border-radius: 7px;
+ background: #0000FF; width:240px; height:200px; border-radius: 7px;
  -webkit-backface-visibility: hidden;
  backface-visibility: hidden;
  transition: -webkit-transform .5s linear 0s;
