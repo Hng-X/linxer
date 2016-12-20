@@ -29,8 +29,21 @@
       </header>
 
       <!--Long Search Tab -->
-      <div>
-
+      <div class="row search">
+        <div class = "col-lg-12 col-md-12 col-xs-12 pull-right">
+          <form method = "">
+            <div class = "input-group">
+            <label for = "search-tags" class="fr-tags"> Find Links </label>
+            <input class = "form-control search input-lg" data-list = ".list" id = "search-tags" name = "query" placeholder = "Search for links">
+            <span class = "input-group-btn">
+              <label for = "search-tags-btn" class="fr-tags"> Search Links </label>
+              <button id = "search-tags-btn" class="btn search btn-default btn-lg" type="submit">
+                <i class = "fa fa-search"></i>
+              </button>
+            </span>
+            </div>
+          </form>
+        </div>  
       </div>
 
       <!-- Card Section -->
@@ -39,9 +52,10 @@
       </div>
 
       <!--Footer Section -->
-      <div>
-        
-      </div>
+      <footer>
+        <p>made with ❤️ by <a href="">hngX</a></p>
+      </footer>
+
     </div>
 </body>
 
