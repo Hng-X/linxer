@@ -53,13 +53,13 @@ class HandleSlackEvent implements ShouldQueue
                 //add link to db
                 $url = $this->sanitizeAndVerifyUrl($parsedText["link"]);
                 if ($url) {
-                    $linkId = $this->createLink($url);
+                    $this->createLink($url);        //$linkId =
 
                     if ($parsedText['tags']) {
-                        $this->addTags($linkId, $params['link_id']);
+                        $this->addTags($params['link_id'], $parsedText['tags']);
                     }
                     else {  //IF THERE ARE NOT TAGS, ADD LINK TITLE AS A TAG
-                        $this->addTags($linkId, $params['link_title']);
+                        $this->addTags($params['link_id'], $params['link_title']);
                     }
 
                     $responses=array(
