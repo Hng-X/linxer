@@ -56,22 +56,29 @@ class HandleSlackEvent implements ShouldQueue
                     $linkId = $this->createLink($url);
 
                     if ($parsedText['tags']) {
-                        $this->addTags($linkId, $parsedText['tags']);
+                        $this->addTags($linkId, $params['link_id']);
                     }
+                    else {  //IF THERE ARE NOT TAGS, ADD LINK TITLE AS A TAG
+                        $this->addTags($linkId, $params['link_title'])
+                    }
+
                     $responses=array(
                          "Done! :+1: See all your team's <$teamLinksUrl|here>.",
                          "Added! <$teamLinksUrl|Here> are all your team's links. :sunglasses:",
                         "Link saved! Rest easy, Linxer's got ya back. :muscle:",
                         "Mission Accomplished, boss!"
                     );
+
                     $data['text'] = $responses[array_rand($responses)];
-                 } else {
+                }
+                else {
                    $responses=array(
                         "I'm sorry, boss. I couldn't save that. Not a valid link. Why not check it again?",
                                           "Oops, that doesn't look like a valid link. Maybe you mistyped something?");
                         $data['text'] =  $responses[array_rand($responses)];
                 }
-            } elseif ($parsedText['type'] == 'search') {
+            } 
+            elseif ($parsedText['type'] == 'search') {
                 //check if the tag corresponds to any link for the particular team
 
                 $tag_term0 = $parsedText['query_terms'];
@@ -162,7 +169,13 @@ class HandleSlackEvent implements ShouldQueue
             "title" => $this->getTitle($url)
         );
         $link = Link::firstOrCreate($attributes);
-        return $link->id;
+
+        //also return link title. the link title will be used as a tag if no tags are added to the 'add' post
+        $params = [];
+        $params['link_id'] = $link->id;
+        $params['link_title'] = $link->title;
+
+        return $params;
     }
 
     private function getTitle($url)
