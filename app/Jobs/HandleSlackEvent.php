@@ -5,6 +5,7 @@ namespace App\Jobs;
 use App\Models\Credential;
 use App\Models\Link;
 use App\Models\Tag;
+use App\Models\Link_Tag;
 use GuzzleHttp\Client;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -96,12 +97,12 @@ class HandleSlackEvent implements ShouldQueue
             */
 
                 //search by tags
-                $check = Tag::leftjoin('link_tag', 'link_tag.id', '=', 'tags.tag_link_id')
-                            //->leftjoin('links', 'links.id', '=', 'link_tag.link_id')
-                            ->select('links.url', 'links.title')
-                            //->where('links.team_id', '=', $team)
-                            ->where('tags.name', 'ILIKE', '%$tag_term%')                            
-                            ->get();
+                $check = Link_Tag::leftjoin('tags', 'tags.id', '=', 'link_tag.tag_id')
+                                ->leftjoin('links', 'links.id', '=', 'link_tag.link_id')
+                                ->select('links.url', 'links.title')
+                                ->where('links.team_id', '=', $team)
+                                ->where('tags.name', 'ILIKE', '%$tag_term%')                            
+                                ->get();
 
                 if ($check) {
                     $num = count($check);
