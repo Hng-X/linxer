@@ -59,17 +59,17 @@ class HandleSlackEvent implements ShouldQueue
                         $this->addTags($linkId, $parsedText['tags']);
                     }
                     $responses=array(
- "Done! :+1: See all your team's <$teamLinksUrl|here>.",
- "Added! <$teamLinksUrl|Here> are all your team's links. :sunglasses:",
-"Link saved! Rest easy, Linxer's got ya back. :muscle:",
-"Mission Accomplished, boss!"
-);
+                         "Done! :+1: See all your team's <$teamLinksUrl|here>.",
+                         "Added! <$teamLinksUrl|Here> are all your team's links. :sunglasses:",
+                        "Link saved! Rest easy, Linxer's got ya back. :muscle:",
+                        "Mission Accomplished, boss!"
+                    );
                     $data['text'] = $responses[array_rand($responses)];
                  } else {
                    $responses=array(
-"I'm sorry, boss. I couldn't save that. Not a valid link. Why not check it again?",
-                  "Oops, that doesn't look like a valid link. Maybe you mistyped something?");
-$data['text'] =  $responses[array_rand($responses)];
+                        "I'm sorry, boss. I couldn't save that. Not a valid link. Why not check it again?",
+                                          "Oops, that doesn't look like a valid link. Maybe you mistyped something?");
+                        $data['text'] =  $responses[array_rand($responses)];
                 }
             } elseif ($parsedText['type'] == 'search') {
                 //check if the tag corresponds to any link for the particular team
@@ -79,9 +79,11 @@ $data['text'] =  $responses[array_rand($responses)];
 
 
                 $team = $this->request['team_id'];
-                $check = Link::where('team_id', $team)->where('title', "ILIKE", "%$tag_term%")
-                    ->get(); //"ILIKE" is not a typo. it's needed for case-insensitive pattern matching in Postgres.
-                //searching by title for now
+                $check = Link::where('team_id', $team)
+                            ->where('title', "ILIKE", "%$tag_term%")//"ILIKE" is not a typo. it's needed for case-insensitive pattern matching in Postgres.
+                            ->get(); 
+                            
+                            //searching by title for now
 
                 if ($check) {
                     $num = count($check);
@@ -98,10 +100,10 @@ $data['text'] =  $responses[array_rand($responses)];
                             //array_push($output_text['body'], $content);
                             $sn++;
                         }
-$responses=array(
-"All done, captain! There's `$num` $num_link on *$tag_term* \n$links \n<$teamLinksUrl|Here's> all the team's links, too.",
-                         "Here you go! I found `$num` $num_link on *$tag_term* \n$links \nCheck out all your team's links <$teamLinksUrl|here>.");
-$output_text =$responses[array_rand($responses)];
+                            $responses=array(
+                            "All done, captain! There's `$num` $num_link on *$tag_term* \n$links \n<$teamLinksUrl|Here's> all the team's links, too.",
+                            "Here you go! I found `$num` $num_link on *$tag_term* \n$links \nCheck out all your team's links <$teamLinksUrl|here>.");
+                            $output_text =$responses[array_rand($responses)];
                     } else {
                         $output_text = "I did my best but, I couldn't find any links matching *$tag_term*. :cry: Try refining your keywords, or maybe <$teamLinksUrl|take a look at your team's links>.";
                     }
