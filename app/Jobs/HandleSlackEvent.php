@@ -99,7 +99,7 @@ class HandleSlackEvent implements ShouldQueue
                 $check = Tag::leftjoin('link_tag', 'link_tag.tag_id', '=', 'tags.id')
                             ->leftjoin('links', 'links.id', '=', 'link_tag.link_id')
                             ->select('links.url', 'links.title')
-                            ->where('links.team_id', '=', $team)
+                            //->where('links.team_id', '=', $team)
                             ->where('tags.name', 'ILIKE', '%$tag_term%')                            
                             ->get();
 
@@ -123,7 +123,7 @@ class HandleSlackEvent implements ShouldQueue
                             "Here you go! I found `$num` $num_link on *$tag_term* \n$links \nCheck out all your team's links <$teamLinksUrl|here>.");
                             $output_text =$responses[array_rand($responses)];
                     } else {
-                        $output_text = "I did my best but, I couldn't find any links matching *$tag_term*. :cry: Try refining your keywords, or maybe <$teamLinksUrl|take a look at your team's links>.";
+                        $output_text = "I did my best, but I couldn't find any links matching *$tag_term*. :cry: Try refining your keywords, or maybe <$teamLinksUrl|take a look at your team's links>.";
                     }
 
                     $data['text'] = $output_text;
