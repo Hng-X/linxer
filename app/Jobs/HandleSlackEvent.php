@@ -59,7 +59,7 @@ class HandleSlackEvent implements ShouldQueue
                         $this->addTags($linkId, $params['link_id']);
                     }
                     else {  //IF THERE ARE NOT TAGS, ADD LINK TITLE AS A TAG
-                        $this->addTags($linkId, $params['link_title'])
+                        $this->addTags($linkId, $params['link_title']);
                     }
 
                     $responses=array(
