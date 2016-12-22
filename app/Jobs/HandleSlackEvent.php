@@ -130,7 +130,7 @@ class HandleSlackEvent implements ShouldQueue
                         //$get_links = [];
                         $sn = 1;
 
-                        $links = "";
+                        $links = $check['title'];
                         foreach ($check as $link) {
                             //$output_text["body"] = "$sn <$link->url|$link->title>\n";
                             $links .= "$sn <$link->url|$link->title>\n";         // $link->name     <$link->url|$link->title>   
