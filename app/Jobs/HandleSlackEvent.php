@@ -95,18 +95,18 @@ class HandleSlackEvent implements ShouldQueue
                             ->get();                             
                             //searching by title for now
             
-           
+             */
                 //search by tags
                 $check = Link_Tag::leftjoin('tags', 'tags.id', '=', 'link_tag.tag_id')
-                                //->leftjoin('links', 'links.id', '=', 'link_tag.link_id')
-                                //->select('links.url as url', 'links.title as title')
+                                ->leftjoin('links', 'links.id', '=', 'link_tag.link_id')
+                                ->select('links.url as url', 'links.title as title')
                                 //->where('links.team_id', '=', $team)
-                                ->select('tags.name as name')
+                                //->select('tags.name as name')
                                 ->where('tags.name', 'ILIKE', '%$tag_term%')                            
                                 ->get();
-            */
+           
 
-                $check = Tag::get(); //where('name', 'ILIKE', '%$tag_term%')->
+             //   $check = Tag::get(); //where('name', 'ILIKE', '%$tag_term%')->
             
 
                 if ($check) {
@@ -125,7 +125,7 @@ class HandleSlackEvent implements ShouldQueue
                             $sn++;
                         }
                             $responses=array(
-                            "All done, captain! Got `$num` $num_link on *$tag_term* \n\n$links \n\n<$teamLinksUrl|Here's> all the team's links, too.",
+                            "All done, captain! Got `$num` $num_link on *$tag_term* \n\n$links \n<$teamLinksUrl|Here's> all the team's links, too.",
                             "Here you go! I found `$num` $num_link on *$tag_term* \n\n$links \n\nCheck out all your team's links <$teamLinksUrl|here>.");
                             $output_text =$responses[array_rand($responses)];
                     } else {
