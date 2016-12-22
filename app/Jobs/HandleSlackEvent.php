@@ -91,13 +91,13 @@ class HandleSlackEvent implements ShouldQueue
                 //check if the tag corresponds to any link for the particular team
 
                 $tag_term0 = $parsedText['query_terms'];
-                $tag_term = implode("", $tag_term0);
+                $tag_term = implode(" ", $tag_term0);
 
                 $team = $this->request['team_id'];
             
             
-                $check = Link::where('tags', 'ILIKE', $tag_term)->get();
-                //where('team_id', $team)->where('title', 'ILIKE', '%$tag_term%')                         ->
+                $check = Link::where('team_id', $team)->where('tags', 'ILIKE', $tag_term)->get();
+                //where('title', 'ILIKE', '%$tag_term%')                         ->
                             //->where('tags', 'ILIKE', '%$tag_term%')   //"ILIKE" is not a typo. it's needed for case-insensitive pattern matching in Postgres.
                                                          
                             //searching by title for now
@@ -132,8 +132,8 @@ class HandleSlackEvent implements ShouldQueue
                             $sn++;
                         }
                             $responses=array(
-                            "All done, captain! Got `$num` $num_link on *$tag_term* \n\n$links \n<$teamLinksUrl|Here's> all the team's links, too.",
-                            "Here you go! I found `$num` $num_link on *$tag_term* \n\n$links \nCheck out all your team's links <$teamLinksUrl|here>.");
+                            "All done, captain! Got `$num` $num_link on *$tag_term* \n\n$links \n\n<$teamLinksUrl|Here's> all the team's links, too.",
+                            "Here you go! I found `$num` $num_link on *$tag_term* \n\n$links \n\nCheck out all your team's links <$teamLinksUrl|here>.");
                             $output_text =$responses[array_rand($responses)];
                     } else {
                         $output_text = "I did my best, but I couldn't find any links matching *$tag_term*. :cry: Try refining your keywords, or maybe <$teamLinksUrl|take a look at your team's links>.";
