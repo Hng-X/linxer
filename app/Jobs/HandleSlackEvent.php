@@ -53,11 +53,17 @@ class HandleSlackEvent implements ShouldQueue
             if ($parsedText['type'] == 'add') {
                 //add link to db
                 $url = $this->sanitizeAndVerifyUrl($parsedText["link"]);
-                if ($url) {
-                    $linkId = $this->createLink($url);
 
+                if ($url) {
                     if ($parsedText['tags']) {
-                        $this->addTags($linkId, $parsedText['tags']);
+                        $tags = $parsedText['tags'];
+                        $this->createLink($url, $tags);
+
+                        //$linkId = $this->createLink($url, $tags);
+                        //$this->addTags($linkId, $parsedText['tags']);
+                    }
+                    else {
+                        $this->createLink($url, null);
                     }
                 /*
                     else {  //IF THERE ARE NOT TAGS, ADD LINK TITLE AS A TAG
@@ -101,7 +107,7 @@ class HandleSlackEvent implements ShouldQueue
                                 //->leftjoin('links', 'links.id', '=', 'link_tag.link_id')
                                // ->select('links.url as url', 'links.title as title')
                                 //->where('links.team_id', '=', $team)
-                                ->select('tags.name as name')
+                                ->select('tags.name')
                                 ->where('tags.name', 'ILIKE', '%$tag_term%')                            
                                 ->get();
            
@@ -176,15 +182,19 @@ class HandleSlackEvent implements ShouldQueue
         return filter_var($text, FILTER_VALIDATE_URL);
     }
 
-    public function createLink($url)
+    public function createLink($url, $tags)
     {
+        ($tags != null) ? $_tags = $tags : $_tags = '';
+
         $attributes = array(
             "team_id" => $this->request['team_id'],
             "url" => $url,
             "user_id" => $this->request['event']['user'],
             "channel_id" => $this->request['event']['channel'],
-            "title" => $this->getTitle($url)
+            "title" => $this->getTitle($url),
+            "tags" => $_tags
         );
+
         $link = Link::firstOrCreate($attributes);
 
     /*
