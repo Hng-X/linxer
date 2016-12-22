@@ -97,7 +97,7 @@ class HandleSlackEvent implements ShouldQueue
                 $team = $this->request['team_id'];
             
             
-                $check = Link::select(DB::raw("SELECT * FROM links WHERE team_id = '$team' AND tags IN '$tag_term'"))->get();
+                $check = DB::raw("SELECT * FROM links WHERE team_id = '$team' AND tags IN '$tag_term'"))->get();
                             //where('team_id', $team)
                             //->select('tags', 'ILIKE', $tag_term)
                             
