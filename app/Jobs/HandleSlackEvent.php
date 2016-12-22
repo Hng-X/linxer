@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use DB;
 use App\Models\Credential;
 use App\Models\Link;
 use App\Models\Tag;
