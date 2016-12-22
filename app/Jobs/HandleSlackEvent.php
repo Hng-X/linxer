@@ -89,13 +89,13 @@ class HandleSlackEvent implements ShouldQueue
 
                 $team = $this->request['team_id'];
             
-            
+            /*
                 $check = Link::where('team_id', $team)
                             ->where('title', "ILIKE", "%$tag_term%")//"ILIKE" is not a typo. it's needed for case-insensitive pattern matching in Postgres.
                             ->get();                             
                             //searching by title for now
             
-            /*
+           
                 //search by tags
                 $check = Link_Tag::leftjoin('tags', 'tags.id', '=', 'link_tag.tag_id')
                                 //->leftjoin('links', 'links.id', '=', 'link_tag.link_id')
@@ -104,11 +104,10 @@ class HandleSlackEvent implements ShouldQueue
                                 ->select('tags.name as name')
                                 ->where('tags.name', 'ILIKE', '%$tag_term%')                            
                                 ->get();
-            
-
-                $check = Tag::where('name', 'ILIKE', '%$tag_term%')
-                            ->get();
             */
+
+                $check = Tag::where('name', 'ILIKE', '%$tag_term%')->get();
+            
 
                 if ($check) {
                     $num = count($check);
@@ -126,8 +125,8 @@ class HandleSlackEvent implements ShouldQueue
                             $sn++;
                         }
                             $responses=array(
-                            "All done, captain! There's `$num` $num_link on *$tag_term* \n$links \n<$teamLinksUrl|Here's> all the team's links, too.",
-                            "Here you go! I found `$num` $num_link on *$tag_term* \n$links \nCheck out all your team's links <$teamLinksUrl|here>.");
+                            "All done, captain! There's `$num` $num_link on *$tag_term* \n\n$links \n\n<$teamLinksUrl|Here's> all the team's links, too.",
+                            "Here you go! I found `$num` $num_link on *$tag_term* \n\n$links \n\nCheck out all your team's links <$teamLinksUrl|here>.");
                             $output_text =$responses[array_rand($responses)];
                     } else {
                         $output_text = "I did my best, but I couldn't find any links matching *$tag_term*. :cry: Try refining your keywords, or maybe <$teamLinksUrl|take a look at your team's links>.";

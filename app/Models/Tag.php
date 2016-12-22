@@ -3,9 +3,9 @@ namespace App\Models;
 
 class Tag extends BaseModel {
 
-    protected $table = 'tags';
-
 	protected $guarded=[];
+	
+    protected $table = 'tags';
 
     public function links()
     {
