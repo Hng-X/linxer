@@ -98,10 +98,10 @@ class HandleSlackEvent implements ShouldQueue
              */
                 //search by tags
                 $check = Link_Tag::leftjoin('tags', 'tags.id', '=', 'link_tag.tag_id')
-                                ->leftjoin('links', 'links.id', '=', 'link_tag.link_id')
-                                ->select('links.url as url', 'links.title as title')
+                                //->leftjoin('links', 'links.id', '=', 'link_tag.link_id')
+                               // ->select('links.url as url', 'links.title as title')
                                 //->where('links.team_id', '=', $team)
-                                //->select('tags.name as name')
+                                ->select('tags.name as name')
                                 ->where('tags.name', 'ILIKE', '%$tag_term%')                            
                                 ->get();
            
