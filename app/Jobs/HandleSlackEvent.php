@@ -106,7 +106,7 @@ class HandleSlackEvent implements ShouldQueue
                                 ->get();
             */
 
-                $check = Link_Tag::get(); //where('name', 'ILIKE', '%$tag_term%')->
+                $check = Tag::get(); //where('name', 'ILIKE', '%$tag_term%')->
             
 
                 if ($check) {
@@ -120,12 +120,12 @@ class HandleSlackEvent implements ShouldQueue
                         $links = "";
                         foreach ($check as $link) {
                             //$output_text["body"] = "$sn <$link->url|$link->title>\n";
-                            $links .= "$sn $link->tag_id  \n";         // $link->name     <$link->url|$link->title>   
+                            $links .= "$sn $link->tag_id \n";         // $link->name     <$link->url|$link->title>   
                             //array_push($output_text['body'], $content);
                             $sn++;
                         }
                             $responses=array(
-                            "All done, captain! There's `$num` $num_link on *$tag_term* \n\n$links \n\n<$teamLinksUrl|Here's> all the team's links, too.",
+                            "All done, captain! Got `$num` $num_link on *$tag_term* \n\n$links \n\n<$teamLinksUrl|Here's> all the team's links, too.",
                             "Here you go! I found `$num` $num_link on *$tag_term* \n\n$links \n\nCheck out all your team's links <$teamLinksUrl|here>.");
                             $output_text =$responses[array_rand($responses)];
                     } else {
