@@ -96,7 +96,7 @@ class HandleSlackEvent implements ShouldQueue
                 $team = $this->request['team_id'];
             
             
-                $check = Link::where('title', $tag_term)->get();
+                $check = Link::where('tags', $tag_term)->get();
                 //where('team_id', $team)->where('title', 'ILIKE', '%$tag_term%')                         ->
                             //->where('tags', 'ILIKE', '%$tag_term%')   //"ILIKE" is not a typo. it's needed for case-insensitive pattern matching in Postgres.
                                                          
@@ -127,13 +127,13 @@ class HandleSlackEvent implements ShouldQueue
                         $links = "";
                         foreach ($check as $link) {
                             //$output_text["body"] = "$sn <$link->url|$link->title>\n";
-                            $links .= "$sn $link->title \n";         // $link->name     <$link->url|$link->title>   
+                            $links .= "$sn <$link->url|$link->title> \n";         // $link->name     <$link->url|$link->title>   
                             //array_push($output_text['body'], $content);
                             $sn++;
                         }
                             $responses=array(
                             "All done, captain! Got `$num` $num_link on *$tag_term* \n\n$links \n<$teamLinksUrl|Here's> all the team's links, too.",
-                            "Here you go! I found `$num` $num_link on *$tag_term* \n\n$links \n\nCheck out all your team's links <$teamLinksUrl|here>.");
+                            "Here you go! I found `$num` $num_link on *$tag_term* \n\n$links \nCheck out all your team's links <$teamLinksUrl|here>.");
                             $output_text =$responses[array_rand($responses)];
                     } else {
                         $output_text = "I did my best, but I couldn't find any links matching *$tag_term*. :cry: Try refining your keywords, or maybe <$teamLinksUrl|take a look at your team's links>.";
