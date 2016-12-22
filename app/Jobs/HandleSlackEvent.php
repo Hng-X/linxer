@@ -106,7 +106,7 @@ class HandleSlackEvent implements ShouldQueue
                                 ->get();
             */
 
-                $check = Tag::where('name', 'ILIKE', '%$tag_term%')->get();
+                $check = Link_Tag::get(); //where('name', 'ILIKE', '%$tag_term%')->
             
 
                 if ($check) {
@@ -120,7 +120,7 @@ class HandleSlackEvent implements ShouldQueue
                         $links = "";
                         foreach ($check as $link) {
                             //$output_text["body"] = "$sn <$link->url|$link->title>\n";
-                            $links .= "$sn <$link->url|$link->title> \n";         // $link->name
+                            $links .= "$sn $link->tag_id  \n";         // $link->name     <$link->url|$link->title>   
                             //array_push($output_text['body'], $content);
                             $sn++;
                         }
