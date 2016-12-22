@@ -98,7 +98,7 @@ class HandleSlackEvent implements ShouldQueue
             
                 $check = Link::where('team_id', $team)
                             ->where('tags', 'ILIKE', '%$tag_term%')//"ILIKE" is not a typo. it's needed for case-insensitive pattern matching in Postgres.
-                            ->orwhere('title', 'ILIKE', '%$tag_term%')
+                            //->orwhere('title', 'ILIKE', '%$tag_term%')
                             ->get();                             
                             //searching by title for now
             
