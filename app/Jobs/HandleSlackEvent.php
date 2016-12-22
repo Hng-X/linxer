@@ -94,7 +94,7 @@ class HandleSlackEvent implements ShouldQueue
                             ->where('title', "ILIKE", "%$tag_term%")//"ILIKE" is not a typo. it's needed for case-insensitive pattern matching in Postgres.
                             ->get();                             
                             //searching by title for now
-            */
+            
 
                 //search by tags
                 $check = Link_Tag::leftjoin('tags', 'tags.id', '=', 'link_tag.tag_id')
@@ -104,6 +104,10 @@ class HandleSlackEvent implements ShouldQueue
                                 ->select('tags.name as name')
                                 ->where('tags.name', 'ILIKE', '%$tag_term%')                            
                                 ->get();
+            */
+                                
+                $check = Tag::where('name', 'ILIKE', '%$tag_term%')
+                            ->get();
 
                 if ($check) {
                     $num = count($check);
